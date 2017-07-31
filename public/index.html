@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Web App</title>
+</head>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+
+<script src="chsapp.js"></script>
+<link rel="stylesheet" href="chsapp.css"></script>
+
+<script src="Dashboard/dashboardController.js"></script>
+<script src="Register/registerController.js"></script>
+<script src="Login/loginController.js"></script>
+<script src="Login/loginService.js"></script>
+<script src="Table1/table1OverviewController.js"></script>
+<script src="Table1/table1DetailController.js"></script>
+<script src="Util/notifyDlg.js"></script>
+<script src="ui-routes.js"></script>
+
+<body ng-app="mainApp">
+   <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">
+         <li ng-if="!!user">
+            <a ui-sref="dashboard"
+             ui-sref-opts="{reload: true, inherit: false}">{{location}}</a>
+         </li>
+      </ul>
+   </nav>
+         <a ng-if= "!user" ui-sref="login">Login</a>
+         <a ng-if="!!user" ui-sref="dashboard">Dashboard</a>
+         <a ng-if="!!user" ui-sref="table1Overview">Table1</a>
+         <a ng-if="!!user" ui-sref="table2Overview">Table2</a>
+   <div ng-if="!!user" class="pull-right">
+      <button type="button" class="btn" ng-click="logout()"
+       ng-controller="loginController" >Logout</button>
+   </div>
+   <ui-view/>
+
+
+</body>
+</html>
