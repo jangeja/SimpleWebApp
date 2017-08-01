@@ -1,0 +1,11 @@
+<div class="list-group">
+   <div class="list-group-item" ng-repeat="cnv in cnvs">
+      <cnv-summary to-summarize="cnv" edit-cnv="editCnv(cnv)"
+       del-cnv="delCnv(cnv)" user="user"></cnv-summary>
+   </div>
+</div>
+
+<button class="btn btn-primary" type="button" style="margin-top:5px"
+ ng-click="newRow()">
+   New Row
+</button>

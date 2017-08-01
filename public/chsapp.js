@@ -58,27 +58,7 @@ app.filter('tagError', ['errMap', 'language', function(errMap, language) {
    };
 }]);
 
-app.directive('cnvSummary', [function() {
-   return {
-      restrict: 'E',
-      scope: {
-         cnv: "=toSummarize",
-         user: "=",
-         delCnv: '&',
-         editCnv: '&'
-      },
-      template: '<a  href="#" ui-sref="cnvDetail({cnvId:{{cnv.id}}})">' +
-       '{{cnv.title}} {{cnv.lastMessage | date : "medium"}}</a>' +
-       '<button type="button" class="btn btn-default btn-sm pull-right"' +
-       'ng-show="user && user.id == cnv.ownerId" ng-click="delCnv({cnv: cnv})">' +
-       '<span class="glyphicon glyphicon-trash"></span>' +
-       '</button>' +
-       '<button type="button" class="btn btn-default btn-sm pull-right"' +
-       'ng-show="user && user.id == cnv.ownerId" ng-click="editCnv({cnv: cnv})">' +
-       '<span class="glyphicon glyphicon-edit"></span>' +
-       '</button>'
-   };
-}]);
+
 
 app.directive('msgSummary', [function() {
    return {

@@ -24,7 +24,7 @@ router.get('/:table', function(req, res) {
    });
 });
 
-router.get('/:table/:rowId', function(req, res) {
+router.get('/:table/Rows/:rowId', function(req, res) {
 
    var vld = req.validator;
    var body = req.body;
@@ -36,10 +36,12 @@ router.get('/:table/:rowId', function(req, res) {
       async.waterfall([
 
          function (cb) {
+            console.log(rowId);
             client.query('select * from ' + table + ' where id = $1', [rowId], cb);
          }],
          function (err, results) {
             if (!err) {
+               console.log(results);
                row = results.rows.length && results.rows[0];
                if (vld.check(row, Tags.notFound, null)) {
                   res.status(200).json(row);
@@ -87,7 +89,7 @@ router.post('/:table', function(req, res) {
 
 });
 
-router.put('/:table/:rowId', function(req, res) {
+router.put('/:table/Rows/:rowId', function(req, res) {
    var vld = req.validator;
    var body = req.body;
    var cnn = req.cnn;
@@ -131,7 +133,7 @@ router.put('/:table/:rowId', function(req, res) {
    });
 });
 
-router.delete('/:table/:rowId', function(req, res) {
+router.delete('/:table/Rows/:rowId', function(req, res) {
    var vld = req.validator;
    var table = req.params.table;
    var rowId = req.params.rowId;

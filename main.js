@@ -94,7 +94,9 @@ app.delete('/DB', function(req, res) {
                 column6 = r.string(20, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
              client.query('insert into Table1(column1, column2, column3, column4, ' +
                'column5, column6) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
-               [column1, column2, column3, column4, column5, column6 ], cb)
+               [column1, column2, column3, column4, column5, column6 ], cb);
+               console.log([column1, column2, column3, column4, column5, column6 ]);
+
          });
       }
 
@@ -109,7 +111,7 @@ app.delete('/DB', function(req, res) {
                 column6 = r.string(20, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
              client.query('insert into Table2(column1, column2, column3, column4, ' +
                'column5, column6) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
-               [column1, column2, column3, column4, column5, column6 ], cb)
+               [column1, column2, column3, column4, column5, column6 ], cb);
          });
       }
 

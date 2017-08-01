@@ -5,7 +5,9 @@ function ($scope, $state, $http, $uibM, language, errMap, $location,
  nDlg, rows, $rootScope) {
 
    $scope.rows = rows;
+   console.log(rows);
    $rootScope.location = 'Table 1';
+   console.log(rows.length);
    $scope.newRow = function() {
 
       $scope.title = null;
@@ -13,13 +15,13 @@ function ($scope, $state, $http, $uibM, language, errMap, $location,
       $scope.dlgTitle = "New Conversation";
 
       $uibM.open({
-         templateUrl: 'Conversation/editCnvDlg.template.html',
+         templateUrl: 'Conversation/editRowDlg.template.html',
          scope: $scope
       }).result
 
       .then(function(newTitle) {
 
-         return $http.post("Cnvs", {title: newTitle});
+         return $http.post("Rows", {title: newTitle});
       })
 
       .then(function() {
@@ -27,7 +29,7 @@ function ($scope, $state, $http, $uibM, language, errMap, $location,
       })
 
       .then(function(rsp) {
-         $scope.cnvs = rsp.data;
+         $scope.rows = rsp.data;
       })
 
       .catch(function(err) {
@@ -40,17 +42,17 @@ function ($scope, $state, $http, $uibM, language, errMap, $location,
       });
    };
 
-   $scope.editCnv = function (cnv) {
-      $scope.placeholderTitle = cnv.title;
+   $scope.editRow = function (row) {
+      $scope.placeholderTitle = row.title;
 
       $uibM.open({
-         templateUrl: 'Conversation/editCnvDlg.template.html',
+         templateUrl: 'Conversation/editRowDlg.template.html',
          scope: $scope
       }).result
 
       .then(function (title) {
          if (title)
-            return $http.put('/Cnvs/' + cnv.id, {'title': title});
+            return $http.put('/Rows/' + row.id, {'title': title});
       })
 
       .then(function(rsp) {
@@ -67,13 +69,13 @@ function ($scope, $state, $http, $uibM, language, errMap, $location,
       });
    };
 
-   $scope.delCnv = function(cnv) {
-      nDlg.show($scope, "Delete conversation " + cnv.title,
+   $scope.delRow = function(row) {
+      nDlg.show($scope, "Delete conversation " + row.title,
        "Delete", ["Yes", "No"])
 
       .then(function (btn) {
          if (btn === 'Yes') {
-            return $http.delete('/Cnvs/' + cnv.id);
+            return $http.delete('/Rows/' + row.id);
          }
       })
 

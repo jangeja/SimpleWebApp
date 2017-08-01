@@ -34,13 +34,14 @@ app.config(['$stateProvider', '$urlRouterProvider',
             }]
          }
       })
-      .state('cnvDetail', {
-         url: '/cnvs/:cnvId/Msgs',
-         templateUrl: 'Conversation/cnvDetail.template.html',
-         controller: 'cnvDetailController',
+      .state('table1RowDetail', {
+         url: '/rows/:rowId',
+         templateUrl: 'Table1/table1RowDetail.template.html',
+         controller: 'table1RowDetailController',
          resolve: {
             msgs: ['$q', '$http', '$stateParams',function($q, $http, $stateParams) {
-               return $http.get('/Cnvs/' + $stateParams.cnvId + '/Msgs')
+               console.log($stateParams.rowId);
+               return $http.get('Tables/Table1/Rows/' + $stateParams.rowId)
                .then(function(response) {
                   return response.data;
                });
