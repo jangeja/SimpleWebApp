@@ -2,7 +2,6 @@ var Express = require('express');
 var Tags = require('../Validator.js').Tags;
 var router = Express.Router({caseSensitive: true});
 var async = require('async');
-var escape = require('pg-escape');
 
 router.baseURL = '/Tables';
 

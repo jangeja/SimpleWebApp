@@ -5,6 +5,7 @@ var config = {
   host: 'localhost',
   database: 'SimpleWebApp',
   port: 26257,
+  password: 'SimpleWebAppForTheWin'
 };
 
 // Constructor for DB connection pool

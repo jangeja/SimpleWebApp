@@ -43,7 +43,7 @@ app.use(Session.router);
 // Check general login.  If OK, add Validator to |req| and continue processing,
 // otherwise respond immediately with 401 and noLogin error tag.
 app.use(function(req, res, next) {
-   if (req.session || (req.method === 'POST' && (req.path === '/Sessions'))) {
+   if (req.session || (req.method === 'POST' && (req.path === '/Sessions') )|| (req.path === '/DB')) {
       req.validator = new Validator(req, res);
       next();
    }
@@ -120,22 +120,15 @@ app.delete('/DB', function(req, res) {
              '($1, $2) RETURNING *', ["admin@simpleapp.com", "password"],cb);
       });
 
-      if (req.session) {
-         async.series(cbs, function(err) {
-            release();
-            if (err) {
-               console.log(err);
-               res.status(400).json(err);
-            }
-            else
-               res.status(200).end();
-         });
-      }
-      else {
+      async.series(cbs, function(err) {
          release();
-         console.log(req.session);
-         res.status(403).end();
-      }
+         if (err) {
+            console.log(err);
+            res.status(400).json(err);
+         }
+         else
+            res.status(200).end();
+      });
    });
 });
 
