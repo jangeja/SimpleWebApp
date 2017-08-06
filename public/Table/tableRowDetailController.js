@@ -4,10 +4,10 @@ app.controller('tableRowDetailController',
 function($scope, $state, $http, $uibM, nDlg, $stateParams, rowData,
    language, errMap, $rootScope) {
    $rootScope.location = "Table " + $rootScope.tableNum + ' Row ' + rowData.index;
-
+   
    rowData.data.column4 = new Date(rowData.data.column4);
    rowData.data.column4.setMinutes(rowData.data.column4.getMinutes() - rowData.data.column4.getTimezoneOffset());
-
+   console.log(rowData);
    rowData.data.column5Date = new Date(rowData.data.column5);
    rowData.data.column5Date.setMinutes(rowData.data.column5Date.getMinutes() - rowData.data.column5Date.getTimezoneOffset());
 
