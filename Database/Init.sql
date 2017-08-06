@@ -29,6 +29,10 @@ create table Table2 (
    column5 timestamp,
    column6 string
 );
-CREATE USER test_user WITH PASSWORD 'SimpleWebAppForTheWin';
-grant all on SimpleWebApp.* to test_user;
+
+create table Queues (
+   queueName string primary key
+);
+      --CREATE USER test_user WITH PASSWORD 'SimpleWebAppForTheWin';
+
 grant all on SimpleWebApp.* to test_user;

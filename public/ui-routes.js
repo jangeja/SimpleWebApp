@@ -16,36 +16,42 @@ app.config(['$stateProvider', '$urlRouterProvider',
          templateUrl: 'Login/login.template.html',
          controller: 'loginController',
       })
-      .state('register', {
-         url: '/register',
-         templateUrl: 'Register/register.template.html',
-         controller: 'registerController',
-      })
-      .state('table1Overview', {
-         url: '/table1Overview',
-         templateUrl: 'Table1/table1Overview.template.html',
-         controller: 'table1OverviewController',
+      .state('tableOverview', {
+         url: '/tableOverview/:tableNum',
+         templateUrl: 'Table/tableOverview.template.html',
+         controller: 'tableOverviewController',
          resolve: {
-            rows: ['$q', '$http', '$stateParams', function($q, $http, $stateParams) {
-               return $http.get('/Tables/Table1')
+            rows: ['$q', '$http', '$stateParams', '$rootScope', function($q, $http, $stateParams, $rootScope) {
+
+               $rootScope.tableNum = $stateParams.tableNum;
+               return $http.get('/Tables/Table' + $stateParams.tableNum)
                .then(function(response) {
                   return response.data;
                });
             }]
          }
       })
-      .state('table1RowDetail', {
-         url: '/rows/:rowId',
-         templateUrl: 'Table1/table1RowDetail.template.html',
-         controller: 'table1RowDetailController',
+      .state('tableRowDetail', {
+         url: '/rows/:rowId?index',
+         templateUrl: 'Table/tableRowDetail.template.html',
+         controller: 'tableRowDetailController',
          resolve: {
-            msgs: ['$q', '$http', '$stateParams',function($q, $http, $stateParams) {
-               console.log($stateParams.rowId);
-               return $http.get('Tables/Table1/Rows/' + $stateParams.rowId)
+            rowData: ['$q', '$http', '$stateParams', '$rootScope', function($q, $http, $stateParams, $rootScope) {
+               return $http.get('Tables/Table' + $rootScope.tableNum + '/Rows/' + $stateParams.rowId)
                .then(function(response) {
-                  return response.data;
+                  return {data: response.data, rowId: $stateParams.rowId, index: $stateParams.index};
                });
             }]
          }
+      })
+      .state('tableNewRow', {
+         url: '/newRow',
+         templateUrl: 'Table/tableNewRow.template.html',
+         controller: 'tableNewRowController'
+      })
+      .state('rest', {
+         url: '/rest',
+         templateUrl: 'Rest/rest.template.html',
+         controller: 'restController'
       });
    }]);

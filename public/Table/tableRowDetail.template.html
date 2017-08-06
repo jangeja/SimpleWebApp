@@ -1,0 +1,21 @@
+<h2>Row</h2>
+<div class="list-group">
+    <div class="list-group-item">
+      <p>Row: {{rindex}}</p>
+      <p>Column1: <input ng-model="rowData.column1" ng-change= "validate()">(Integer)</p>
+      <p>Column2: <input ng-model="rowData.column2" ng-change= "validate()">(Decimal)</p>
+      <p>Column3: <input ng-model="rowData.column3" ng-change= "validate()">(Boolean)</p>
+      <p>Column4: <md-datepicker ng-model="rowData.column4" md-placeholder="Enter date"></md-datepicker>(Date)</p>
+      <p>Column5: <md-datepicker ng-model="rowData.column5Date" md-placeholder="Enter date"></md-datepicker>
+         <input ng-model="rowData.column5Time" ng-change="validate()"></input>(Date and Time (HH:MM))</p>
+      <p>Column6: <input ng-model="rowData.column6">(String)</p>
+   </div>
+</div>
+<button class="btn btn-primary" type="button" style="margin-top:5px"
+ ng-click="save()" ng-disabled="!valid">
+   Save
+</button>
+<button class="btn btn-primary" type="button" style="margin-top:5px"
+ ng-click="delete()">
+   Delete
+</button>

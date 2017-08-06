@@ -1,0 +1,26 @@
+
+<div class="list-group" style="overflow-y: scroll; height: 600px;">
+   <table>
+      <th>Row Number</th>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+      <th>Column 4</th>
+      <th>Column 5</th>
+      <th>Column 6</th>
+      <tr ng-repeat="row in rows">
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{$index}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column1}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column2}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column3}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column4 | date : "medium"}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column5 | date : "medium"}}</td>
+         <td ui-sref="tableRowDetail({rowId: row.id, index: $index})">{{row.column6}}</td>
+      </tr>
+   </table>
+</div>
+
+<button class="btn btn-primary" type="button" style="margin-top:5px"
+ ui-sref="tableNewRow">
+   New Row
+</button>

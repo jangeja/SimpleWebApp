@@ -1,0 +1,36 @@
+<h2>REST Call Parameters</h2>
+<div class="list-group">
+    <div class="list-group-item">
+      <p>URL: <input class = "REST" ng-model="url"></p>
+      <br>
+      <p>Method: <input class = "REST" ng-model="method"></p>
+      <br>
+      <p>Headers (if any): <input class = "REST" ng-model="headers"></p>
+      <br>
+      <p>Auth (if any): <input class = "REST" ng-model="auth"></p>
+      <br>
+      <p>Data to be Sent (if any): <input class = "REST" ng-model="body"></p>
+      <br>
+   </div>
+</div>
+
+<div ng-show="response">
+   <h2>REST Response</h2>
+   <label>Response Status</label>
+   <p>
+      {{response.status}}
+   </p>
+   <label>Response Headers</label>
+   <p>
+      {{response.data.headers}}
+   </p>
+   <label>Response Body</label>
+   <p>
+      {{response.data.body}}
+   </p>
+
+</div>
+<button class="btn btn-primary" type="button" style="margin-top:5px"
+ ng-click="send()" ng-disabled="!url || !method">
+   Send
+</button>

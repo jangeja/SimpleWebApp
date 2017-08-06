@@ -4,13 +4,15 @@
   "description": "Test",
   "main": "main.js",
   "dependencies": {
+    "amqplib": "^0.5.1",
     "async": "^2.0.0-rc.6",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "jsesc": "^2.5.1",
-    "pg": "",
-    "random-js": "^1.0.8"
+    "pg": "^7.1.0",
+    "random-js": "^1.0.8",
+    "request": "^2.81.0"
   },
   "devDependencies": {},
   "scripts": {

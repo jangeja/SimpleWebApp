@@ -2,7 +2,7 @@
   "name": "IHS Angular Dependencies",
   "homepage": "https:softwareinventions.com/IHS",
   "authors": [
-    "JasperAD <jasperakahn@gmail.com>"
+    "Joey Angeja <angeja16@gmail.com>"
   ],
   "description": "Dependencies for AngularJS UI for IHS",
   "main": "",
@@ -35,6 +35,8 @@
     "ngstorage": "^0.3.10",
     "angular-marked": "^1.2.1",
     "angular-ui-codemirror": "^0.3.0",
-    "ng-scroll-bar": ""
+    "ng-scroll-bar": "",
+   "angular-bootstrap-datetimepicker": "",
+   "moment": ""
   }
 }

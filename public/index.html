@@ -2,21 +2,39 @@
 <html>
 <head>
     <title>Simple Web App</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="chsapp.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+
 </head>
-<script src="bower_components/angular/angular.min.js"></script>
+<!-- Angular Material Library -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+<script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
 
 <script src="chsapp.js"></script>
-<link rel="stylesheet" href="chsapp.css"></script>
-
 <script src="Dashboard/dashboardController.js"></script>
-<script src="Register/registerController.js"></script>
 <script src="Login/loginController.js"></script>
 <script src="Login/loginService.js"></script>
-<script src="Table1/table1OverviewController.js"></script>
-<script src="Table1/table1RowDetailController.js"></script>
+<script src="Table/tableOverviewController.js"></script>
+<script src="Table/tableRowDetailController.js"></script>
+<script src="Table/tableNewRowController.js"></script>
+<script src="Rest/restController.js"></script>
 <script src="Util/notifyDlg.js"></script>
 <script src="ui-routes.js"></script>
 
@@ -31,8 +49,9 @@
    </nav>
          <a ng-if= "!user" ui-sref="login">Login</a>
          <a ng-if="!!user" ui-sref="dashboard">Dashboard</a>
-         <a ng-if="!!user" ui-sref="table1Overview">Table1</a>
-         <a ng-if="!!user" ui-sref="table2Overview">Table2</a>
+         <a ng-if="!!user" ui-sref="tableOverview({tableNum: 1})">Table1</a>
+         <a ng-if="!!user" ui-sref="tableOverview({tableNum: 2})">Table2</a>
+         <a ng-if="!!user" ui-sref="rest">Rest</a>
    <div ng-if="!!user" class="pull-right">
       <button type="button" class="btn" ng-click="logout()"
        ng-controller="loginController" >Logout</button>

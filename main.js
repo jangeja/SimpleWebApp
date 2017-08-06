@@ -59,6 +59,8 @@ app.use(CnnPool.router);
 app.use('/Sessions', require('./Routes/Account/Sessions.js'));
 app.use('/Persons', require('./Routes/Account/Persons.js'));
 app.use('/Tables', require('./Routes/Tables/Tables.js'));
+app.use('/Proxy', require('./Routes/Proxy/Proxy.js'));
+app.use('/Queues', require('./Routes/Queues/Queues.js'));
 
 // Special debugging route for /DB DELETE.  Clears all table contents,
 //resets all auto_increment keys to start at 1, and reinserts one admin user.

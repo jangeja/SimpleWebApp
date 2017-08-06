@@ -14,3 +14,7 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
+
+.REST {
+   width: 100%;
+}

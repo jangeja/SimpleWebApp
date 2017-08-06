@@ -1,7 +1,10 @@
 
 var app = angular.module('mainApp', [
    'ui.router',
-   'ui.bootstrap'
+   'ui.bootstrap',
+   'ngMaterial',
+   'ngCookies',
+   'ui.bootstrap.datetimepicker'
 ]);
 
 app.constant('languages', {

@@ -19,7 +19,6 @@ router.get('/', function(req, res) {
 
       res.status(200).json(body);
    }
-   req.client.release();
 });
 
 router.post('/', function(req, res) {
@@ -66,7 +65,6 @@ router.delete('/:cookie', function(req, res, next) {
       ssnUtil.deleteSession(req.params.cookie);
       res.status(200).end();
    }
-   req.client.release();
 });
 
 router.get('/:cookie', function(req, res, next) {

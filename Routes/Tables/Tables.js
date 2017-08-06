@@ -35,12 +35,10 @@ router.get('/:table/Rows/:rowId', function(req, res) {
       async.waterfall([
 
          function (cb) {
-            console.log(rowId);
             client.query('select * from ' + table + ' where id = $1', [rowId], cb);
          }],
          function (err, results) {
             if (!err) {
-               console.log(results);
                row = results.rows.length && results.rows[0];
                if (vld.check(row, Tags.notFound, null)) {
                   res.status(200).json(row);
