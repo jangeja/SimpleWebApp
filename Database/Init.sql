@@ -33,6 +33,7 @@ create table Table2 (
 create table Queues (
    queueName string primary key
 );
-      --CREATE USER test_user WITH PASSWORD 'SimpleWebAppForTheWin';
+
+CREATE USER test_user WITH PASSWORD 'SimpleWebAppForTheWin';
 
 grant all on SimpleWebApp.* to test_user;

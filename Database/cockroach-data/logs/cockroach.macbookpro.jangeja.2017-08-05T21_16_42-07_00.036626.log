@@ -1,0 +1,84 @@
+I170805 21:16:42.229007 1 util/log/clog.go:1011  [config] file created at: 2017/08/05 21:16:42
+I170805 21:16:42.229007 1 util/log/clog.go:1011  [config] running on machine: macbookpro
+I170805 21:16:42.229007 1 util/log/clog.go:1011  [config] binary: CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 21:16:42.229007 1 util/log/clog.go:1011  [config] arguments: [cockroach start --insecure --host=localhost]
+I170805 21:16:42.229007 1 util/log/clog.go:1011  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+W170805 21:16:42.229003 1 cli/start.go:587  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access localhost.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/secure-a-cluster.html
+I170805 21:16:42.230263 1 cli/start.go:593  CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 21:16:42.334854 1 server/config.go:375  system total memory: 8.0 GiB
+I170805 21:16:42.335084 1 server/config.go:377  server configuration:
+max offset                   500ms
+cache size                   2.0 GiB
+SQL memory pool size         2.0 GiB
+scan interval                10m0s
+scan max idle time           200ms
+consistency check interval   24h0m0s
+metrics sample interval      10s
+time until store dead        5m0s
+send next timeout            500ms
+event log enabled            true
+linearizable                 false
+I170805 21:16:42.335344 22 cli/start.go:340  starting cockroach node
+W170805 21:16:42.346660 22 server/config_unix.go:106  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I170805 21:16:42.346989 22 storage/engine/rocksdb.go:380  opening rocksdb instance at "/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data"
+I170805 21:16:42.362461 22 server/config.go:475  [n?] 1 storage engine initialized
+I170805 21:16:42.362499 22 server/config.go:477  [n?] RocksDB cache size: 2.0 GiB
+I170805 21:16:42.362514 22 server/config.go:477  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+I170805 21:16:42.363246 22 server/server.go:672  [n?] sleeping for 480.818448ms to guarantee HLC monotonicity
+W170805 21:16:42.888147 89 storage/store.go:1339  [n1,s1,r5/1:/Table/{0-11}] could not gossip system config: [NotLeaseHolderError] r5: replica (n1,s1):1 not lease holder; lease holder unknown
+I170805 21:16:42.888202 22 storage/store.go:1252  [n1] [n1,s1]: failed initial metrics computation: [n1,s1]: system config not yet available
+I170805 21:16:42.888766 22 server/node.go:467  [n1] initialized store [n1,s1]: {Capacity:126823432192 Available:25440313344 RangeCount:111 LeaseCount:0}
+I170805 21:16:42.888825 22 server/node.go:351  [n1] node ID 1 initialized
+I170805 21:16:42.889004 22 gossip/gossip.go:297  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> 
+I170805 21:16:42.889410 22 storage/stores.go:296  [n1] read 0 node addresses from persistent storage
+I170805 21:16:42.891973 22 server/node.go:608  [n1] connecting to gossip network to verify cluster ID...
+I170805 21:16:42.892023 22 server/node.go:633  [n1] node connected via gossip and verified as part of cluster "6c839292-0e43-456e-89cb-64ba28b9951c"
+I170805 21:16:42.892118 22 server/node.go:405  [n1] node=1: started with [[]=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data] engine(s) and attributes []
+I170805 21:16:42.892346 22 sql/executor.go:338  [n1] creating distSQLPlanner with address {tcp localhost:26257}
+I170805 21:16:42.901315 22 server/server.go:735  [n1] starting http server at localhost:8080
+I170805 21:16:42.901348 22 server/server.go:736  [n1] starting grpc/postgres server at localhost:26257
+I170805 21:16:42.901374 22 server/server.go:737  [n1] advertising CockroachDB node at localhost:26257
+I170805 21:16:42.902219 22 server/server.go:847  [n1] done ensuring all necessary migrations have run
+I170805 21:16:42.902254 22 server/server.go:849  [n1] serving sql connections
+I170805 21:16:42.902394 22 cli/start.go:411  node startup completed:
+CockroachDB node starting at 2017-08-05 21:16:42.902303472 -0700 PDT
+build:      CCL v1.0.4 @ 2017/07/27 21:13:34 (go1.8.3)
+admin:      http://localhost:8080
+sql:        postgresql://root@localhost:26257?sslmode=disable
+logs:       /Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data/logs
+store[0]:   path=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data
+status:     restarted pre-existing node
+clusterID:  6c839292-0e43-456e-89cb-64ba28b9951c
+nodeID:     1
+I170805 21:16:42.902795 164 storage/node_liveness.go:250  [n1,hb] heartbeat failed on epoch increment; retrying
+I170805 21:16:42.904170 55 storage/replica_proposal.go:415  [n1,s1,r3/1:/System/ts{d-e}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.901775690,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992915.148094078,0
+I170805 21:16:42.904767 59 storage/replica_proposal.go:415  [n1,s1,r5/1:/Table/{0-11}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.898777978,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992916.340116217,0
+I170805 21:16:42.910433 61 storage/replica_proposal.go:415  [n1,s1,r7/1:/Table/1{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.907421388,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992915.156058025,0
+I170805 21:16:42.915796 154 sql/event_log.go:101  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs: Locality:} ClusterID:6c839292-0e43-456e-89cb-64ba28b9951c StartedAt:1501993002892027023 LastUp:1501992918212048679}
+I170805 21:16:43.094781 64 storage/replica_proposal.go:415  [n1,s1,r90/1:/Table/11{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.090353926,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992687.044292937,0
+I170805 21:16:43.294663 54 storage/replica_proposal.go:415  [n1,s1,r9/1:/Table/1{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.290792548,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992680.555590930,0
+I170805 21:16:43.498107 54 storage/replica_proposal.go:415  [n1,s1,r110/1:/Table/13{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.493725233,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992698.003112613,0
+I170805 21:16:43.697362 75 storage/replica_proposal.go:415  [n1,s1,r86/1:/Table/11{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.694758534,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992682.788266632,0
+I170805 21:16:43.899478 70 storage/replica_proposal.go:415  [n1,s1,r46/1:/Table/7{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.895969650,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992697.393800892,0
+I170805 21:16:44.103246 80 storage/replica_proposal.go:415  [n1,s1,r24/1:/Table/6{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.098391164,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992695.770712688,0
+I170805 21:16:44.303634 68 storage/replica_proposal.go:415  [n1,s1,r103/1:/Table/12{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.301106337,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992689.071546148,0
+I170805 21:16:44.507025 60 storage/replica_proposal.go:415  [n1,s1,r21/1:/Table/6{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.504012525,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992686.435338728,0
+I170805 21:16:44.709736 53 storage/replica_proposal.go:415  [n1,s1,r57/1:/Table/8{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.704420419,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992700.041164310,0
+I170805 21:16:44.915048 69 storage/replica_proposal.go:415  [n1,s1,r97/1:/Table/12{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.908249691,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992679.547213151,0
+I170805 21:16:45.116315 52 storage/replica_proposal.go:415  [n1,s1,r109/1:/Table/13{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.111065698,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992687.651726957,0
+I170805 21:16:45.318546 63 storage/replica_proposal.go:415  [n1,s1,r75/1:/Table/{99-100}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.313747704,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992681.974639101,0
+I170805 21:16:45.521271 57 storage/replica_proposal.go:415  [n1,s1,r89/1:/Table/11{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.515778747,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992685.219381551,0
+I170805 21:16:45.726736 57 storage/replica_proposal.go:415  [n1,s1,r43/1:/Table/6{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.721473538,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992680.153616426,0
+I170805 21:16:45.855325 1 cli/start.go:446  received signal 'interrupt'
+I170805 21:16:45.855739 1 cli/start.go:471  initiating graceful shutdown of server
+I170805 21:16:45.866836 32 vendor/google.golang.org/grpc/transport/http2_server.go:323  transport: http2Server.HandleStreams failed to read frame: read tcp 127.0.0.1:26257->127.0.0.1:62322: use of closed network connection
+E170805 21:16:51.388254 1 cli/error.go:68  received signal 'interrupt' during shutdown, initiating hard shutdown
+Error: received signal 'interrupt' during shutdown, initiating hard shutdown

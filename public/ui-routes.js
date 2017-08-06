@@ -6,6 +6,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
       $router.otherwise("/");
 
       $stateProvider
+      .state('home', {
+         url: '/',
+         templateUrl: 'Login/login.template.html',
+         controller: 'loginController',
+      })
       .state('dashboard',  {
          url: '/dashboard',
          templateUrl: 'Dashboard/dashboard.template.html',

@@ -1,0 +1,785 @@
+I170805 20:48:16.718868 1 util/log/clog.go:1011  [config] file created at: 2017/08/05 20:48:16
+I170805 20:48:16.718868 1 util/log/clog.go:1011  [config] running on machine: macbookpro
+I170805 20:48:16.718868 1 util/log/clog.go:1011  [config] binary: CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 20:48:16.718868 1 util/log/clog.go:1011  [config] arguments: [cockroach start --insecure --host=localhost]
+I170805 20:48:16.718868 1 util/log/clog.go:1011  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+W170805 20:48:16.718854 1 cli/start.go:587  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access localhost.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/secure-a-cluster.html
+I170805 20:48:16.720070 1 cli/start.go:593  CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 20:48:16.824534 1 server/config.go:375  system total memory: 8.0 GiB
+I170805 20:48:16.824684 1 server/config.go:377  server configuration:
+max offset                   500ms
+cache size                   2.0 GiB
+SQL memory pool size         2.0 GiB
+scan interval                10m0s
+scan max idle time           200ms
+consistency check interval   24h0m0s
+metrics sample interval      10s
+time until store dead        5m0s
+send next timeout            500ms
+event log enabled            true
+linearizable                 false
+I170805 20:48:16.825010 25 cli/start.go:340  starting cockroach node
+W170805 20:48:16.834556 25 server/config_unix.go:106  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I170805 20:48:16.834912 25 storage/engine/rocksdb.go:380  opening rocksdb instance at "/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data"
+I170805 20:48:16.998282 25 server/config.go:475  [n?] 1 storage engine initialized
+I170805 20:48:16.998319 25 server/config.go:477  [n?] RocksDB cache size: 2.0 GiB
+I170805 20:48:16.998335 25 server/config.go:477  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+I170805 20:48:16.999639 25 server/server.go:672  [n?] sleeping for 332.399623ms to guarantee HLC monotonicity
+I170805 20:48:17.347575 25 storage/store.go:1252  [n1] [n1,s1]: failed initial metrics computation: [n1,s1]: system config not yet available
+W170805 20:48:17.347714 98 storage/store.go:1339  [n1,s1,r5/1:/Table/{0-11}] could not gossip system config: [NotLeaseHolderError] r5: replica (n1,s1):1 not lease holder; lease holder unknown
+I170805 20:48:17.347744 25 server/node.go:467  [n1] initialized store [n1,s1]: {Capacity:126823432192 Available:25445543936 RangeCount:25 LeaseCount:0}
+I170805 20:48:17.347805 25 server/node.go:351  [n1] node ID 1 initialized
+I170805 20:48:17.347977 25 gossip/gossip.go:297  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> 
+I170805 20:48:17.348514 25 storage/stores.go:296  [n1] read 0 node addresses from persistent storage
+I170805 20:48:17.348832 25 server/node.go:608  [n1] connecting to gossip network to verify cluster ID...
+I170805 20:48:17.348872 25 server/node.go:633  [n1] node connected via gossip and verified as part of cluster "6c839292-0e43-456e-89cb-64ba28b9951c"
+I170805 20:48:17.349437 25 server/node.go:405  [n1] node=1: started with [[]=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data] engine(s) and attributes []
+I170805 20:48:17.349717 25 sql/executor.go:338  [n1] creating distSQLPlanner with address {tcp localhost:26257}
+I170805 20:48:17.359704 25 server/server.go:735  [n1] starting http server at localhost:8080
+I170805 20:48:17.359737 25 server/server.go:736  [n1] starting grpc/postgres server at localhost:26257
+I170805 20:48:17.359763 25 server/server.go:737  [n1] advertising CockroachDB node at localhost:26257
+I170805 20:48:17.360532 25 server/server.go:847  [n1] done ensuring all necessary migrations have run
+I170805 20:48:17.360566 25 server/server.go:849  [n1] serving sql connections
+I170805 20:48:17.360712 25 cli/start.go:411  node startup completed:
+CockroachDB node starting at 2017-08-05 20:48:17.360606356 -0700 PDT
+build:      CCL v1.0.4 @ 2017/07/27 21:13:34 (go1.8.3)
+admin:      http://localhost:8080
+sql:        postgresql://root@localhost:26257?sslmode=disable
+logs:       /Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data/logs
+store[0]:   path=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data
+status:     restarted pre-existing node
+clusterID:  6c839292-0e43-456e-89cb-64ba28b9951c
+nodeID:     1
+I170805 20:48:17.366748 164 storage/node_liveness.go:250  [n1,hb] heartbeat failed on epoch increment; retrying
+I170805 20:48:17.367201 72 storage/replica_proposal.go:415  [n1,s1,r3/1:/System/ts{d-e}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.362011861,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501990844.240615815,0
+I170805 20:48:17.367824 61 storage/replica_proposal.go:415  [n1,s1,r5/1:/Table/{0-11}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.362890309,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501990844.213487858,0
+I170805 20:48:17.374232 66 storage/replica_proposal.go:415  [n1,s1,r7/1:/Table/1{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.372795574,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.481283559,0
+I170805 20:48:17.377929 168 sql/event_log.go:101  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs: Locality:} ClusterID:6c839292-0e43-456e-89cb-64ba28b9951c StartedAt:1501991297348875721 LastUp:1501991263337332656}
+I170805 20:48:17.555592 61 storage/replica_proposal.go:415  [n1,s1,r4/1:/{System/tse-Table/0}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.552098746,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.583435925,0
+I170805 20:48:17.756578 65 storage/replica_proposal.go:415  [n1,s1,r25/1:/{Table/64-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:17.956706 83 storage/replica_proposal.go:415  [n1,s1,r24/1:/Table/6{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.954196371,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:18.158991 79 storage/replica_proposal.go:415  [n1,s1,r3/1:/System/ts{d-e}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991298.155551924,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.362011861,0
+I170805 20:48:18.363751 88 storage/replica_proposal.go:415  [n1,s1,r12/1:/Table/5{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991298.358159711,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.497755097,0
+I170805 20:48:18.562737 78 storage/replica_proposal.go:415  [n1,s1,r7/1:/Table/1{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991298.559608830,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.372795574,0
+I170805 20:48:18.764521 72 storage/replica_proposal.go:415  [n1,s1,r16/1:/Table/5{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991298.760111011,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:18.966262 86 storage/replica_proposal.go:415  [n1,s1,r22/1:/Table/6{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991298.960765850,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:19.366463 87 storage/replica_proposal.go:415  [n1,s1,r13/1:/Table/5{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.362045240,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.538901019,0
+I170805 20:48:19.568086 81 storage/replica_proposal.go:415  [n1,s1,r17/1:/Table/5{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.565381622,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:19.615853 65 storage/replica_proposal.go:415  [n1,s1,r5/1:/Table/{0-11}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.613461812,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501991297.362890309,0
+I170805 20:48:19.630564 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "drop_database", target: 60, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:48:19.641545 90 storage/replica_proposal.go:415  [n1,s1,r6/1:/Table/1{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.638715864,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.489716397,0
+I170805 20:48:19.642736 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=61 (person) version=4 mtime=2017-08-05 20:48:19.642654439 -0700 PDT
+I170805 20:48:19.666865 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=64 (queues) version=4 mtime=2017-08-05 20:48:19.666811824 -0700 PDT
+I170805 20:48:19.691774 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=62 (table1) version=4 mtime=2017-08-05 20:48:19.691720943 -0700 PDT
+I170805 20:48:19.701064 78 storage/replica_proposal.go:415  [n1,s1,r23/1:/Table/6{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.699019425,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:19.722721 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=63 (table2) version=4 mtime=2017-08-05 20:48:19.722665063 -0700 PDT
+I170805 20:48:19.749127 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "create_database", target: 65, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:48:19.749365 102 storage/split_queue.go:93  [split,n1,s1,r25/1:/{Table/64-Max}] splitting at key /Table/65/0
+I170805 20:48:19.750606 102 storage/replica_command.go:2670  [split,n1,s1,r25/1:/{Table/64-Max}] initiating a split of this range at key /Table/65 [r41]
+I170805 20:48:19.757072 82 storage/replica_proposal.go:415  [n1,s1,r8/1:/Table/1{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.754175190,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501990844.214684315,0
+I170805 20:48:19.759180 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "create_table", target: 66, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:48:19.761754 80 storage/replica_proposal.go:415  [n1,s1,r25/1:/{Table/64-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:48:19.762909 102 storage/split_queue.go:93  [split,n1,s1,r41/1:/{Table/65-Max}] splitting at key /Table/66/0
+I170805 20:48:19.762948 102 storage/replica_command.go:2670  [split,n1,s1,r41/1:/{Table/65-Max}] initiating a split of this range at key /Table/66 [r42]
+I170805 20:48:19.768327 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "create_table", target: 67, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:48:19.773968 86 storage/replica_proposal.go:415  [n1,s1,r19/1:/Table/5{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991299.766250335,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:19.777030 70 storage/replica_proposal.go:415  [n1,s1,r41/1:/{Table/65-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:48:19.783384 102 storage/split_queue.go:93  [split,n1,s1,r42/1:/{Table/66-Max}] splitting at key /Table/67/0
+I170805 20:48:19.783426 102 storage/replica_command.go:2670  [split,n1,s1,r42/1:/{Table/66-Max}] initiating a split of this range at key /Table/67 [r43]
+I170805 20:48:19.793501 78 storage/replica_proposal.go:415  [n1,s1,r42/1:/{Table/66-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:48:19.799086 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "create_table", target: 68, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:48:19.799729 102 storage/split_queue.go:93  [split,n1,s1,r43/1:/{Table/67-Max}] splitting at key /Table/68/0
+I170805 20:48:19.799763 102 storage/replica_command.go:2670  [split,n1,s1,r43/1:/{Table/67-Max}] initiating a split of this range at key /Table/68 [r44]
+I170805 20:48:19.810496 70 storage/replica_proposal.go:415  [n1,s1,r43/1:/{Table/67-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:48:19.811242 230 sql/event_log.go:101  [client=127.0.0.1:54679,user=root,n1] Event: "create_table", target: 69, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:48:19.812221 102 storage/split_queue.go:93  [split,n1,s1,r44/1:/{Table/68-Max}] splitting at key /Table/69/0
+I170805 20:48:19.812257 102 storage/replica_command.go:2670  [split,n1,s1,r44/1:/{Table/68-Max}] initiating a split of this range at key /Table/69 [r45]
+I170805 20:48:19.821196 67 storage/replica_proposal.go:415  [n1,s1,r44/1:/{Table/68-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:48:19.827245 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=66 (person) version=2 mtime=2017-08-05 20:48:19.827205713 -0700 PDT
+I170805 20:48:19.838656 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=69 (queues) version=2 mtime=2017-08-05 20:48:19.838608623 -0700 PDT
+I170805 20:48:19.850514 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=67 (table1) version=2 mtime=2017-08-05 20:48:19.850470634 -0700 PDT
+I170805 20:48:19.864497 230 sql/lease.go:372  [client=127.0.0.1:54679,user=root,n1] publish: descID=68 (table2) version=2 mtime=2017-08-05 20:48:19.864456518 -0700 PDT
+I170805 20:48:20.174392 68 storage/replica_proposal.go:415  [n1,s1,r11/1:/Table/5{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991300.169729911,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.584995905,0
+I170805 20:48:20.783736 77 storage/replica_proposal.go:415  [n1,s1,r18/1:/Table/5{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991300.779053896,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:20.985438 77 storage/replica_proposal.go:415  [n1,s1,r9/1:/Table/1{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991300.980592307,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.586395136,0
+I170805 20:48:21.189793 77 storage/replica_proposal.go:415  [n1,s1,r14/1:/Table/5{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991301.185115703,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.560391139,0
+I170805 20:48:21.599458 61 storage/replica_proposal.go:415  [n1,s1,r21/1:/Table/6{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991301.594064355,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:21.804391 61 storage/replica_proposal.go:415  [n1,s1,r10/1:/Table/{15-50}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991301.799384752,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.587266549,0
+I170805 20:48:22.208941 92 storage/replica_proposal.go:415  [n1,s1,r15/1:/Table/5{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991302.203812506,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+I170805 20:48:22.412477 92 storage/replica_proposal.go:415  [n1,s1,r20/1:/Table/{59-60}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991302.407101297,0 following repl=(n1,s1):1 start=0.000000000,0 epo=1 pro=1501980529.518551816,0
+W170805 20:48:27.350607 39 server/status/runtime.go:184  [n1] unable to get file descriptor usage (will not try again): not implemented on darwin
+I170805 20:48:27.350732 37 storage/store.go:3997  [n1,s1] sstables (read amplification = 1):
+6 [ 734K 1 ]: 734K
+I170805 20:48:27.350923 39 server/status/runtime.go:225  [n1] runtime stats: 50 MiB RSS, 124 goroutines, 11 MiB/4.5 MiB/24 MiB GO alloc/idle/total, 7.6 MiB/11 MiB CGO alloc/total, 0.00cgo/sec, 0.00/0.00 %(u/s)time, 0.00 %gc (9x)
+I170805 20:48:37.349970 39 server/status/runtime.go:225  [n1] runtime stats: 53 MiB RSS, 124 goroutines, 16 MiB/2.3 MiB/27 MiB GO alloc/idle/total, 7.5 MiB/12 MiB CGO alloc/total, 67.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:48:47.350103 39 server/status/runtime.go:225  [n1] runtime stats: 54 MiB RSS, 124 goroutines, 14 MiB/4.3 MiB/27 MiB GO alloc/idle/total, 7.6 MiB/12 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:48:57.352737 39 server/status/runtime.go:225  [n1] runtime stats: 62 MiB RSS, 124 goroutines, 9.9 MiB/12 MiB/31 MiB GO alloc/idle/total, 11 MiB/16 MiB CGO alloc/total, 92.28cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (2x)
+I170805 20:49:03.632125 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "drop_database", target: 65, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:49:03.637624 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=66 (person) version=3 mtime=2017-08-05 20:49:03.637583377 -0700 PDT
+I170805 20:49:03.660053 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=69 (queues) version=3 mtime=2017-08-05 20:49:03.660005486 -0700 PDT
+I170805 20:49:03.682289 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=67 (table1) version=3 mtime=2017-08-05 20:49:03.68224726 -0700 PDT
+I170805 20:49:03.698003 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=68 (table2) version=3 mtime=2017-08-05 20:49:03.697967974 -0700 PDT
+I170805 20:49:03.713382 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "create_database", target: 70, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:49:03.713697 102 storage/split_queue.go:93  [split,n1,s1,r45/1:/{Table/69-Max}] splitting at key /Table/70/0
+I170805 20:49:03.713736 102 storage/replica_command.go:2670  [split,n1,s1,r45/1:/{Table/69-Max}] initiating a split of this range at key /Table/70 [r46]
+I170805 20:49:03.721169 78 storage/replica_proposal.go:415  [n1,s1,r45/1:/{Table/69-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:03.722375 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "create_table", target: 71, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:49:03.722573 102 storage/split_queue.go:93  [split,n1,s1,r46/1:/{Table/70-Max}] splitting at key /Table/71/0
+I170805 20:49:03.722608 102 storage/replica_command.go:2670  [split,n1,s1,r46/1:/{Table/70-Max}] initiating a split of this range at key /Table/71 [r47]
+I170805 20:49:03.730314 85 storage/replica_proposal.go:415  [n1,s1,r46/1:/{Table/70-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:03.731084 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "create_table", target: 72, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:49:03.732038 102 storage/split_queue.go:93  [split,n1,s1,r47/1:/{Table/71-Max}] splitting at key /Table/72/0
+I170805 20:49:03.732079 102 storage/replica_command.go:2670  [split,n1,s1,r47/1:/{Table/71-Max}] initiating a split of this range at key /Table/72 [r48]
+I170805 20:49:03.739248 82 storage/replica_proposal.go:415  [n1,s1,r47/1:/{Table/71-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:03.742314 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "create_table", target: 73, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:49:03.743197 102 storage/split_queue.go:93  [split,n1,s1,r48/1:/{Table/72-Max}] splitting at key /Table/73/0
+I170805 20:49:03.743235 102 storage/replica_command.go:2670  [split,n1,s1,r48/1:/{Table/72-Max}] initiating a split of this range at key /Table/73 [r49]
+I170805 20:49:03.755514 65 storage/replica_proposal.go:415  [n1,s1,r48/1:/{Table/72-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:03.759693 878 sql/event_log.go:101  [client=127.0.0.1:54866,user=root,n1] Event: "create_table", target: 74, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:49:03.759961 102 storage/split_queue.go:93  [split,n1,s1,r49/1:/{Table/73-Max}] splitting at key /Table/74/0
+I170805 20:49:03.759996 102 storage/replica_command.go:2670  [split,n1,s1,r49/1:/{Table/73-Max}] initiating a split of this range at key /Table/74 [r50]
+I170805 20:49:03.767245 92 storage/replica_proposal.go:415  [n1,s1,r49/1:/{Table/73-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:03.879200 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=71 (person) version=2 mtime=2017-08-05 20:49:03.879156634 -0700 PDT
+I170805 20:49:03.891797 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=74 (queues) version=2 mtime=2017-08-05 20:49:03.891752925 -0700 PDT
+I170805 20:49:03.905656 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=72 (table1) version=2 mtime=2017-08-05 20:49:03.905621821 -0700 PDT
+I170805 20:49:03.917612 878 sql/lease.go:372  [client=127.0.0.1:54866,user=root,n1] publish: descID=73 (table2) version=2 mtime=2017-08-05 20:49:03.917576623 -0700 PDT
+I170805 20:49:07.350001 39 server/status/runtime.go:225  [n1] runtime stats: 63 MiB RSS, 124 goroutines, 17 MiB/7.1 MiB/31 MiB GO alloc/idle/total, 11 MiB/17 MiB CGO alloc/total, 975.15cgo/sec, 0.05/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 20:49:17.351792 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:49:17.352571 39 server/status/runtime.go:225  [n1] runtime stats: 64 MiB RSS, 125 goroutines, 14 MiB/7.4 MiB/31 MiB GO alloc/idle/total, 11 MiB/17 MiB CGO alloc/total, 72.18cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:49:25.599952 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "drop_database", target: 70, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:49:25.606523 1497 sql/lease.go:372  [client=127.0.0.1:54962,user=root,n1] publish: descID=71 (person) version=3 mtime=2017-08-05 20:49:25.606463297 -0700 PDT
+I170805 20:49:25.632645 1497 sql/lease.go:372  [client=127.0.0.1:54962,user=root,n1] publish: descID=74 (queues) version=3 mtime=2017-08-05 20:49:25.632602189 -0700 PDT
+I170805 20:49:25.657462 1497 sql/lease.go:372  [client=127.0.0.1:54962,user=root,n1] publish: descID=72 (table1) version=3 mtime=2017-08-05 20:49:25.657413297 -0700 PDT
+I170805 20:49:25.685344 1497 sql/lease.go:372  [client=127.0.0.1:54962,user=root,n1] publish: descID=73 (table2) version=3 mtime=2017-08-05 20:49:25.685297231 -0700 PDT
+I170805 20:49:25.707142 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "create_database", target: 75, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:49:25.707644 102 storage/split_queue.go:93  [split,n1,s1,r50/1:/{Table/74-Max}] splitting at key /Table/75/0
+I170805 20:49:25.707682 102 storage/replica_command.go:2670  [split,n1,s1,r50/1:/{Table/74-Max}] initiating a split of this range at key /Table/75 [r51]
+I170805 20:49:25.715718 64 storage/replica_proposal.go:415  [n1,s1,r50/1:/{Table/74-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:25.718202 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "create_table", target: 76, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:49:25.718831 102 storage/split_queue.go:93  [split,n1,s1,r51/1:/{Table/75-Max}] splitting at key /Table/76/0
+I170805 20:49:25.718870 102 storage/replica_command.go:2670  [split,n1,s1,r51/1:/{Table/75-Max}] initiating a split of this range at key /Table/76 [r52]
+I170805 20:49:25.726521 75 storage/replica_proposal.go:415  [n1,s1,r51/1:/{Table/75-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:25.726828 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "create_table", target: 77, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:49:25.728369 102 storage/split_queue.go:93  [split,n1,s1,r52/1:/{Table/76-Max}] splitting at key /Table/77/0
+I170805 20:49:25.728408 102 storage/replica_command.go:2670  [split,n1,s1,r52/1:/{Table/76-Max}] initiating a split of this range at key /Table/77 [r53]
+I170805 20:49:25.737611 67 storage/replica_proposal.go:415  [n1,s1,r52/1:/{Table/76-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:25.737824 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "create_table", target: 78, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:49:25.740247 102 storage/split_queue.go:93  [split,n1,s1,r53/1:/{Table/77-Max}] splitting at key /Table/78/0
+I170805 20:49:25.740292 102 storage/replica_command.go:2670  [split,n1,s1,r53/1:/{Table/77-Max}] initiating a split of this range at key /Table/78 [r54]
+I170805 20:49:25.752313 86 storage/replica_proposal.go:415  [n1,s1,r53/1:/{Table/77-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:25.754852 1497 sql/event_log.go:101  [client=127.0.0.1:54962,user=root,n1] Event: "create_table", target: 79, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:49:25.756372 102 storage/split_queue.go:93  [split,n1,s1,r54/1:/{Table/78-Max}] splitting at key /Table/79/0
+I170805 20:49:25.756411 102 storage/replica_command.go:2670  [split,n1,s1,r54/1:/{Table/78-Max}] initiating a split of this range at key /Table/79 [r55]
+I170805 20:49:25.769209 63 storage/replica_proposal.go:415  [n1,s1,r54/1:/{Table/78-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:49:27.350250 39 server/status/runtime.go:225  [n1] runtime stats: 64 MiB RSS, 124 goroutines, 15 MiB/8.5 MiB/31 MiB GO alloc/idle/total, 10 MiB/18 MiB CGO alloc/total, 756.08cgo/sec, 0.05/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 20:49:37.352834 39 server/status/runtime.go:225  [n1] runtime stats: 64 MiB RSS, 124 goroutines, 13 MiB/8.7 MiB/31 MiB GO alloc/idle/total, 10 MiB/18 MiB CGO alloc/total, 121.47cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:49:47.350747 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 9.5 MiB/11 MiB/31 MiB GO alloc/idle/total, 10 MiB/18 MiB CGO alloc/total, 62.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:49:57.350329 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 15 MiB/6.4 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 65.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:50:07.352261 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 12 MiB/9.0 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 58.29cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:50:17.349923 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:50:17.350068 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 125 goroutines, 18 MiB/4.2 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 59.91cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:50:27.349931 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 14 MiB/7.1 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 60.60cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:50:37.350196 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 12 MiB/9.9 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 66.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:50:47.351893 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 17 MiB/5.0 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 60.89cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:50:57.350114 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 12 MiB/9.0 MiB/31 MiB GO alloc/idle/total, 11 MiB/19 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:50:59.685345 2024 sql/event_log.go:101  [client=127.0.0.1:55443,user=root,n1] Event: "drop_database", target: 75, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:50:59.693067 2024 sql/lease.go:372  [client=127.0.0.1:55443,user=root,n1] publish: descID=76 (person) version=2 mtime=2017-08-05 20:50:59.693025267 -0700 PDT
+I170805 20:50:59.721265 2024 sql/lease.go:372  [client=127.0.0.1:55443,user=root,n1] publish: descID=79 (queues) version=2 mtime=2017-08-05 20:50:59.721214237 -0700 PDT
+I170805 20:50:59.746626 2024 sql/lease.go:372  [client=127.0.0.1:55443,user=root,n1] publish: descID=77 (table1) version=2 mtime=2017-08-05 20:50:59.746583571 -0700 PDT
+I170805 20:50:59.765616 2024 sql/lease.go:372  [client=127.0.0.1:55443,user=root,n1] publish: descID=78 (table2) version=2 mtime=2017-08-05 20:50:59.76557895 -0700 PDT
+I170805 20:50:59.783077 2024 sql/event_log.go:101  [client=127.0.0.1:55443,user=root,n1] Event: "create_database", target: 80, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:50:59.783389 102 storage/split_queue.go:93  [split,n1,s1,r55/1:/{Table/79-Max}] splitting at key /Table/80/0
+I170805 20:50:59.783427 102 storage/replica_command.go:2670  [split,n1,s1,r55/1:/{Table/79-Max}] initiating a split of this range at key /Table/80 [r56]
+I170805 20:50:59.791949 68 storage/replica_proposal.go:415  [n1,s1,r55/1:/{Table/79-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:51:07.352041 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 16 MiB/7.3 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 514.10cgo/sec, 0.02/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:51:17.351808 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:51:17.352402 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 125 goroutines, 12 MiB/8.5 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 62.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:51:27.353270 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 18 MiB/3.6 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 68.99cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:51:37.351709 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 14 MiB/7.2 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:51:47.350274 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 11 MiB/10 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 59.21cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:51:57.352069 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 16 MiB/5.4 MiB/31 MiB GO alloc/idle/total, 12 MiB/20 MiB CGO alloc/total, 58.29cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:52:05.441403 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "drop_database", target: 80, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[]}
+I170805 20:52:05.447625 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "create_database", target: 81, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:52:05.448295 102 storage/split_queue.go:93  [split,n1,s1,r56/1:/{Table/80-Max}] splitting at key /Table/81/0
+I170805 20:52:05.448331 102 storage/replica_command.go:2670  [split,n1,s1,r56/1:/{Table/80-Max}] initiating a split of this range at key /Table/81 [r57]
+I170805 20:52:05.459149 83 storage/replica_proposal.go:415  [n1,s1,r56/1:/{Table/80-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:52:05.462783 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "create_table", target: 82, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:52:05.463941 102 storage/split_queue.go:93  [split,n1,s1,r57/1:/{Table/81-Max}] splitting at key /Table/82/0
+I170805 20:52:05.463983 102 storage/replica_command.go:2670  [split,n1,s1,r57/1:/{Table/81-Max}] initiating a split of this range at key /Table/82 [r58]
+I170805 20:52:05.481284 61 storage/replica_proposal.go:415  [n1,s1,r57/1:/{Table/81-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:52:05.482603 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "create_table", target: 83, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:52:05.491432 102 storage/split_queue.go:93  [split,n1,s1,r58/1:/{Table/82-Max}] splitting at key /Table/83/0
+I170805 20:52:05.491478 102 storage/replica_command.go:2670  [split,n1,s1,r58/1:/{Table/82-Max}] initiating a split of this range at key /Table/83 [r59]
+I170805 20:52:05.507297 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "create_table", target: 84, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:52:05.511301 74 storage/replica_proposal.go:415  [n1,s1,r58/1:/{Table/82-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:52:05.512261 102 storage/split_queue.go:93  [split,n1,s1,r59/1:/{Table/83-Max}] splitting at key /Table/84/0
+I170805 20:52:05.512295 102 storage/replica_command.go:2670  [split,n1,s1,r59/1:/{Table/83-Max}] initiating a split of this range at key /Table/84 [r60]
+I170805 20:52:05.522816 2340 sql/event_log.go:101  [client=127.0.0.1:55724,user=root,n1] Event: "create_table", target: 85, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:52:05.525265 86 storage/replica_proposal.go:415  [n1,s1,r59/1:/{Table/83-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:52:05.526722 102 storage/split_queue.go:93  [split,n1,s1,r60/1:/{Table/84-Max}] splitting at key /Table/85/0
+I170805 20:52:05.526766 102 storage/replica_command.go:2670  [split,n1,s1,r60/1:/{Table/84-Max}] initiating a split of this range at key /Table/85 [r61]
+I170805 20:52:05.543713 83 storage/replica_proposal.go:415  [n1,s1,r60/1:/{Table/84-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:52:07.351989 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 19 MiB/4.7 MiB/31 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 434.01cgo/sec, 0.03/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:52:17.349818 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:52:17.349908 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 125 goroutines, 16 MiB/5.6 MiB/31 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 156.03cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:52:27.350079 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 12 MiB/10 MiB/32 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 66.80cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:52:37.350125 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 18 MiB/5.1 MiB/32 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:52:47.349924 39 server/status/runtime.go:225  [n1] runtime stats: 70 MiB RSS, 124 goroutines, 12 MiB/11 MiB/33 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:52:57.349993 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 18 MiB/5.7 MiB/33 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 65.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:53:07.352536 39 server/status/runtime.go:225  [n1] runtime stats: 58 MiB RSS, 124 goroutines, 13 MiB/10 MiB/33 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 58.29cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:53:17.350941 39 server/status/runtime.go:225  [n1] runtime stats: 59 MiB RSS, 124 goroutines, 18 MiB/5.5 MiB/33 MiB GO alloc/idle/total, 13 MiB/21 MiB CGO alloc/total, 62.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:53:17.351002 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:53:27.306592 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "drop_database", target: 81, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:53:27.312477 2695 sql/lease.go:372  [client=127.0.0.1:56075,user=root,n1] publish: descID=82 (person) version=2 mtime=2017-08-05 20:53:27.312436135 -0700 PDT
+I170805 20:53:27.331574 2695 sql/lease.go:372  [client=127.0.0.1:56075,user=root,n1] publish: descID=85 (queues) version=2 mtime=2017-08-05 20:53:27.331521906 -0700 PDT
+I170805 20:53:27.349949 39 server/status/runtime.go:225  [n1] runtime stats: 60 MiB RSS, 125 goroutines, 18 MiB/6.8 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 287.43cgo/sec, 0.02/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:53:27.351394 2695 sql/lease.go:372  [client=127.0.0.1:56075,user=root,n1] publish: descID=83 (table1) version=2 mtime=2017-08-05 20:53:27.351366069 -0700 PDT
+I170805 20:53:27.370653 2695 sql/lease.go:372  [client=127.0.0.1:56075,user=root,n1] publish: descID=84 (table2) version=2 mtime=2017-08-05 20:53:27.370593472 -0700 PDT
+I170805 20:53:27.388768 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "create_database", target: 86, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:53:27.389581 102 storage/split_queue.go:93  [split,n1,s1,r61/1:/{Table/85-Max}] splitting at key /Table/86/0
+I170805 20:53:27.389625 102 storage/replica_command.go:2670  [split,n1,s1,r61/1:/{Table/85-Max}] initiating a split of this range at key /Table/86 [r62]
+I170805 20:53:27.398364 83 storage/replica_proposal.go:415  [n1,s1,r61/1:/{Table/85-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:53:27.399430 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "create_table", target: 87, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:53:27.401349 102 storage/split_queue.go:93  [split,n1,s1,r62/1:/{Table/86-Max}] splitting at key /Table/87/0
+I170805 20:53:27.401401 102 storage/replica_command.go:2670  [split,n1,s1,r62/1:/{Table/86-Max}] initiating a split of this range at key /Table/87 [r63]
+I170805 20:53:27.409318 63 storage/replica_proposal.go:415  [n1,s1,r62/1:/{Table/86-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:53:27.409889 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "create_table", target: 88, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:53:27.411739 102 storage/split_queue.go:93  [split,n1,s1,r63/1:/{Table/87-Max}] splitting at key /Table/88/0
+I170805 20:53:27.411779 102 storage/replica_command.go:2670  [split,n1,s1,r63/1:/{Table/87-Max}] initiating a split of this range at key /Table/88 [r64]
+I170805 20:53:27.424390 62 storage/replica_proposal.go:415  [n1,s1,r63/1:/{Table/87-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:53:27.428084 102 storage/split_queue.go:93  [split,n1,s1,r64/1:/{Table/88-Max}] splitting at key /Table/89/0
+I170805 20:53:27.428143 102 storage/replica_command.go:2670  [split,n1,s1,r64/1:/{Table/88-Max}] initiating a split of this range at key /Table/89 [r65]
+I170805 20:53:27.428891 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "create_table", target: 89, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:53:27.445890 63 storage/replica_proposal.go:415  [n1,s1,r64/1:/{Table/88-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:53:27.452161 2695 sql/event_log.go:101  [client=127.0.0.1:56075,user=root,n1] Event: "create_table", target: 90, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:53:27.452983 102 storage/split_queue.go:93  [split,n1,s1,r65/1:/{Table/89-Max}] splitting at key /Table/90/0
+I170805 20:53:27.453039 102 storage/replica_command.go:2670  [split,n1,s1,r65/1:/{Table/89-Max}] initiating a split of this range at key /Table/90 [r66]
+I170805 20:53:27.462819 92 storage/replica_proposal.go:415  [n1,s1,r65/1:/{Table/89-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:53:37.351124 39 server/status/runtime.go:225  [n1] runtime stats: 60 MiB RSS, 124 goroutines, 13 MiB/10 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 574.53cgo/sec, 0.04/0.00 %(u/s)time, 0.00 %gc (2x)
+I170805 20:53:47.350739 39 server/status/runtime.go:225  [n1] runtime stats: 60 MiB RSS, 124 goroutines, 19 MiB/5.3 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 79.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:53:57.351388 39 server/status/runtime.go:225  [n1] runtime stats: 60 MiB RSS, 124 goroutines, 14 MiB/9.1 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:54:07.351327 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 20 MiB/4.4 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:54:17.352211 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 14 MiB/8.6 MiB/33 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:54:17.352620 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:54:27.351343 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 20 MiB/3.8 MiB/33 MiB GO alloc/idle/total, 15 MiB/23 MiB CGO alloc/total, 69.70cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:54:37.352307 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 15 MiB/8.4 MiB/33 MiB GO alloc/idle/total, 15 MiB/23 MiB CGO alloc/total, 61.39cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:54:47.350051 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 21 MiB/3.6 MiB/33 MiB GO alloc/idle/total, 15 MiB/23 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:54:57.350086 39 server/status/runtime.go:225  [n1] runtime stats: 61 MiB RSS, 124 goroutines, 15 MiB/8.1 MiB/33 MiB GO alloc/idle/total, 15 MiB/23 MiB CGO alloc/total, 58.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:55:03.383128 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "drop_database", target: 86, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:55:03.395782 3257 sql/lease.go:372  [client=127.0.0.1:56489,user=root,n1] publish: descID=87 (person) version=2 mtime=2017-08-05 20:55:03.39572642 -0700 PDT
+I170805 20:55:03.415600 3257 sql/lease.go:372  [client=127.0.0.1:56489,user=root,n1] publish: descID=90 (queues) version=2 mtime=2017-08-05 20:55:03.415557075 -0700 PDT
+I170805 20:55:03.435939 3257 sql/lease.go:372  [client=127.0.0.1:56489,user=root,n1] publish: descID=88 (table1) version=2 mtime=2017-08-05 20:55:03.435902037 -0700 PDT
+I170805 20:55:03.451011 3257 sql/lease.go:372  [client=127.0.0.1:56489,user=root,n1] publish: descID=89 (table2) version=2 mtime=2017-08-05 20:55:03.450977922 -0700 PDT
+I170805 20:55:03.468217 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "create_database", target: 91, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:55:03.468380 102 storage/split_queue.go:93  [split,n1,s1,r66/1:/{Table/90-Max}] splitting at key /Table/91/0
+I170805 20:55:03.468411 102 storage/replica_command.go:2670  [split,n1,s1,r66/1:/{Table/90-Max}] initiating a split of this range at key /Table/91 [r67]
+I170805 20:55:03.476333 69 storage/replica_proposal.go:415  [n1,s1,r66/1:/{Table/90-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:03.477165 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "create_table", target: 92, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:55:03.478561 102 storage/split_queue.go:93  [split,n1,s1,r67/1:/{Table/91-Max}] splitting at key /Table/92/0
+I170805 20:55:03.478602 102 storage/replica_command.go:2670  [split,n1,s1,r67/1:/{Table/91-Max}] initiating a split of this range at key /Table/92 [r68]
+I170805 20:55:03.487393 85 storage/replica_proposal.go:415  [n1,s1,r67/1:/{Table/91-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:03.489754 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "create_table", target: 93, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:55:03.490782 102 storage/split_queue.go:93  [split,n1,s1,r68/1:/{Table/92-Max}] splitting at key /Table/93/0
+I170805 20:55:03.490821 102 storage/replica_command.go:2670  [split,n1,s1,r68/1:/{Table/92-Max}] initiating a split of this range at key /Table/93 [r69]
+I170805 20:55:03.511665 76 storage/replica_proposal.go:415  [n1,s1,r68/1:/{Table/92-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:03.511906 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "create_table", target: 94, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:55:03.516041 102 storage/split_queue.go:93  [split,n1,s1,r69/1:/{Table/93-Max}] splitting at key /Table/94/0
+I170805 20:55:03.516090 102 storage/replica_command.go:2670  [split,n1,s1,r69/1:/{Table/93-Max}] initiating a split of this range at key /Table/94 [r70]
+I170805 20:55:03.525527 87 storage/replica_proposal.go:415  [n1,s1,r69/1:/{Table/93-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:03.526091 3257 sql/event_log.go:101  [client=127.0.0.1:56489,user=root,n1] Event: "create_table", target: 95, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:55:03.527013 102 storage/split_queue.go:93  [split,n1,s1,r70/1:/{Table/94-Max}] splitting at key /Table/95/0
+I170805 20:55:03.527062 102 storage/replica_command.go:2670  [split,n1,s1,r70/1:/{Table/94-Max}] initiating a split of this range at key /Table/95 [r71]
+I170805 20:55:03.544269 77 storage/replica_proposal.go:415  [n1,s1,r70/1:/{Table/94-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:07.351940 39 server/status/runtime.go:225  [n1] runtime stats: 62 MiB RSS, 124 goroutines, 14 MiB/8.1 MiB/33 MiB GO alloc/idle/total, 15 MiB/24 MiB CGO alloc/total, 933.92cgo/sec, 0.04/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 20:55:14.667043 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "drop_database", target: 91, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:55:14.674191 3702 sql/lease.go:372  [client=127.0.0.1:56539,user=root,n1] publish: descID=92 (person) version=2 mtime=2017-08-05 20:55:14.674139634 -0700 PDT
+I170805 20:55:14.701221 3702 sql/lease.go:372  [client=127.0.0.1:56539,user=root,n1] publish: descID=95 (queues) version=2 mtime=2017-08-05 20:55:14.701171245 -0700 PDT
+I170805 20:55:14.730047 3702 sql/lease.go:372  [client=127.0.0.1:56539,user=root,n1] publish: descID=93 (table1) version=2 mtime=2017-08-05 20:55:14.729997098 -0700 PDT
+I170805 20:55:14.759128 3702 sql/lease.go:372  [client=127.0.0.1:56539,user=root,n1] publish: descID=94 (table2) version=2 mtime=2017-08-05 20:55:14.759076633 -0700 PDT
+I170805 20:55:14.780018 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "create_database", target: 96, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:55:14.780315 102 storage/split_queue.go:93  [split,n1,s1,r71/1:/{Table/95-Max}] splitting at key /Table/96/0
+I170805 20:55:14.780351 102 storage/replica_command.go:2670  [split,n1,s1,r71/1:/{Table/95-Max}] initiating a split of this range at key /Table/96 [r72]
+I170805 20:55:14.789449 66 storage/replica_proposal.go:415  [n1,s1,r71/1:/{Table/95-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:14.791886 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "create_table", target: 97, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:55:14.792745 102 storage/split_queue.go:93  [split,n1,s1,r72/1:/{Table/96-Max}] splitting at key /Table/97/0
+I170805 20:55:14.792784 102 storage/replica_command.go:2670  [split,n1,s1,r72/1:/{Table/96-Max}] initiating a split of this range at key /Table/97 [r73]
+I170805 20:55:14.800587 80 storage/replica_proposal.go:415  [n1,s1,r72/1:/{Table/96-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:14.801840 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "create_table", target: 98, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:55:14.803465 102 storage/split_queue.go:93  [split,n1,s1,r73/1:/{Table/97-Max}] splitting at key /Table/98/0
+I170805 20:55:14.803550 102 storage/replica_command.go:2670  [split,n1,s1,r73/1:/{Table/97-Max}] initiating a split of this range at key /Table/98 [r74]
+I170805 20:55:14.814684 65 storage/replica_proposal.go:415  [n1,s1,r73/1:/{Table/97-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:14.817334 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "create_table", target: 99, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:55:14.818836 102 storage/split_queue.go:93  [split,n1,s1,r74/1:/{Table/98-Max}] splitting at key /Table/99/0
+I170805 20:55:14.818877 102 storage/replica_command.go:2670  [split,n1,s1,r74/1:/{Table/98-Max}] initiating a split of this range at key /Table/99 [r75]
+I170805 20:55:14.833891 76 storage/replica_proposal.go:415  [n1,s1,r74/1:/{Table/98-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:14.836313 3702 sql/event_log.go:101  [client=127.0.0.1:56539,user=root,n1] Event: "create_table", target: 100, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:55:14.841032 102 storage/split_queue.go:93  [split,n1,s1,r75/1:/{Table/99-Max}] splitting at key /Table/100/0
+I170805 20:55:14.841073 102 storage/replica_command.go:2670  [split,n1,s1,r75/1:/{Table/99-Max}] initiating a split of this range at key /Table/100 [r76]
+I170805 20:55:14.854529 89 storage/replica_proposal.go:415  [n1,s1,r75/1:/{Table/99-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:55:17.351247 39 server/status/runtime.go:225  [n1] runtime stats: 63 MiB RSS, 124 goroutines, 21 MiB/4.9 MiB/33 MiB GO alloc/idle/total, 16 MiB/25 MiB CGO alloc/total, 891.66cgo/sec, 0.04/0.01 %(u/s)time, 0.00 %gc (1x)
+I170805 20:55:17.351679 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:55:27.350091 39 server/status/runtime.go:225  [n1] runtime stats: 63 MiB RSS, 124 goroutines, 16 MiB/6.0 MiB/33 MiB GO alloc/idle/total, 16 MiB/25 MiB CGO alloc/total, 74.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:55:37.349889 39 server/status/runtime.go:225  [n1] runtime stats: 64 MiB RSS, 124 goroutines, 22 MiB/3.1 MiB/35 MiB GO alloc/idle/total, 16 MiB/25 MiB CGO alloc/total, 76.00cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:55:47.350074 39 server/status/runtime.go:225  [n1] runtime stats: 64 MiB RSS, 124 goroutines, 17 MiB/8.8 MiB/36 MiB GO alloc/idle/total, 16 MiB/25 MiB CGO alloc/total, 58.00cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:55:57.350594 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 22 MiB/3.9 MiB/36 MiB GO alloc/idle/total, 16 MiB/25 MiB CGO alloc/total, 66.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:56:07.350134 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 17 MiB/9.8 MiB/37 MiB GO alloc/idle/total, 11 MiB/24 MiB CGO alloc/total, 61.40cgo/sec, 0.04/0.01 %(u/s)time, 0.00 %gc (1x)
+I170805 20:56:17.350234 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:56:17.350385 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 125 goroutines, 22 MiB/4.9 MiB/37 MiB GO alloc/idle/total, 11 MiB/24 MiB CGO alloc/total, 59.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:56:27.351673 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 17 MiB/9.8 MiB/37 MiB GO alloc/idle/total, 11 MiB/24 MiB CGO alloc/total, 60.99cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:56:37.350064 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 22 MiB/5.0 MiB/37 MiB GO alloc/idle/total, 11 MiB/24 MiB CGO alloc/total, 65.81cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:56:45.057230 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "drop_database", target: 96, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:56:45.065086 4191 sql/lease.go:372  [client=127.0.0.1:56922,user=root,n1] publish: descID=97 (person) version=2 mtime=2017-08-05 20:56:45.065030626 -0700 PDT
+I170805 20:56:45.089929 4191 sql/lease.go:372  [client=127.0.0.1:56922,user=root,n1] publish: descID=100 (queues) version=2 mtime=2017-08-05 20:56:45.08988046 -0700 PDT
+I170805 20:56:45.115846 4191 sql/lease.go:372  [client=127.0.0.1:56922,user=root,n1] publish: descID=98 (table1) version=2 mtime=2017-08-05 20:56:45.115797587 -0700 PDT
+I170805 20:56:45.135601 4191 sql/lease.go:372  [client=127.0.0.1:56922,user=root,n1] publish: descID=99 (table2) version=2 mtime=2017-08-05 20:56:45.135566353 -0700 PDT
+I170805 20:56:45.156069 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "create_database", target: 101, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:56:45.156331 102 storage/split_queue.go:93  [split,n1,s1,r76/1:/{Table/100-Max}] splitting at key /Table/101/0
+I170805 20:56:45.156371 102 storage/replica_command.go:2670  [split,n1,s1,r76/1:/{Table/100-Max}] initiating a split of this range at key /Table/101 [r77]
+I170805 20:56:45.164424 77 storage/replica_proposal.go:415  [n1,s1,r76/1:/{Table/100-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:56:45.164698 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "create_table", target: 102, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:56:45.165798 102 storage/split_queue.go:93  [split,n1,s1,r77/1:/{Table/101-Max}] splitting at key /Table/102/0
+I170805 20:56:45.165839 102 storage/replica_command.go:2670  [split,n1,s1,r77/1:/{Table/101-Max}] initiating a split of this range at key /Table/102 [r78]
+I170805 20:56:45.174786 85 storage/replica_proposal.go:415  [n1,s1,r77/1:/{Table/101-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:56:45.175585 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "create_table", target: 103, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:56:45.177613 102 storage/split_queue.go:93  [split,n1,s1,r78/1:/{Table/102-Max}] splitting at key /Table/103/0
+I170805 20:56:45.177651 102 storage/replica_command.go:2670  [split,n1,s1,r78/1:/{Table/102-Max}] initiating a split of this range at key /Table/103 [r79]
+I170805 20:56:45.187153 73 storage/replica_proposal.go:415  [n1,s1,r78/1:/{Table/102-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:56:45.189316 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "create_table", target: 104, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:56:45.190779 102 storage/split_queue.go:93  [split,n1,s1,r79/1:/{Table/103-Max}] splitting at key /Table/104/0
+I170805 20:56:45.190818 102 storage/replica_command.go:2670  [split,n1,s1,r79/1:/{Table/103-Max}] initiating a split of this range at key /Table/104 [r80]
+I170805 20:56:45.202365 81 storage/replica_proposal.go:415  [n1,s1,r79/1:/{Table/103-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:56:45.202852 4191 sql/event_log.go:101  [client=127.0.0.1:56922,user=root,n1] Event: "create_table", target: 105, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:56:45.205976 102 storage/split_queue.go:93  [split,n1,s1,r80/1:/{Table/104-Max}] splitting at key /Table/105/0
+I170805 20:56:45.206031 102 storage/replica_command.go:2670  [split,n1,s1,r80/1:/{Table/104-Max}] initiating a split of this range at key /Table/105 [r81]
+I170805 20:56:45.216805 72 storage/replica_proposal.go:415  [n1,s1,r80/1:/{Table/104-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:56:47.351000 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 18 MiB/11 MiB/37 MiB GO alloc/idle/total, 11 MiB/25 MiB CGO alloc/total, 871.92cgo/sec, 0.03/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 20:56:57.352828 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 13 MiB/13 MiB/37 MiB GO alloc/idle/total, 11 MiB/25 MiB CGO alloc/total, 58.89cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:57:07.350395 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 19 MiB/8.1 MiB/37 MiB GO alloc/idle/total, 12 MiB/25 MiB CGO alloc/total, 90.82cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:57:17.350362 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 14 MiB/12 MiB/37 MiB GO alloc/idle/total, 12 MiB/25 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:57:17.350407 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:57:20.622524 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "drop_database", target: 101, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:57:20.629910 4637 sql/lease.go:372  [client=127.0.0.1:57077,user=root,n1] publish: descID=102 (person) version=2 mtime=2017-08-05 20:57:20.629860915 -0700 PDT
+I170805 20:57:20.654711 4637 sql/lease.go:372  [client=127.0.0.1:57077,user=root,n1] publish: descID=105 (queues) version=2 mtime=2017-08-05 20:57:20.654658671 -0700 PDT
+I170805 20:57:20.677742 4637 sql/lease.go:372  [client=127.0.0.1:57077,user=root,n1] publish: descID=103 (table1) version=2 mtime=2017-08-05 20:57:20.677703001 -0700 PDT
+I170805 20:57:20.704632 4637 sql/lease.go:372  [client=127.0.0.1:57077,user=root,n1] publish: descID=104 (table2) version=2 mtime=2017-08-05 20:57:20.704569995 -0700 PDT
+I170805 20:57:20.722020 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "create_database", target: 106, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:57:20.722365 102 storage/split_queue.go:93  [split,n1,s1,r81/1:/{Table/105-Max}] splitting at key /Table/106/0
+I170805 20:57:20.722399 102 storage/replica_command.go:2670  [split,n1,s1,r81/1:/{Table/105-Max}] initiating a split of this range at key /Table/106 [r82]
+I170805 20:57:20.729609 65 storage/replica_proposal.go:415  [n1,s1,r81/1:/{Table/105-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:20.732162 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "create_table", target: 107, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:57:20.732867 102 storage/split_queue.go:93  [split,n1,s1,r82/1:/{Table/106-Max}] splitting at key /Table/107/0
+I170805 20:57:20.732905 102 storage/replica_command.go:2670  [split,n1,s1,r82/1:/{Table/106-Max}] initiating a split of this range at key /Table/107 [r83]
+I170805 20:57:20.739817 72 storage/replica_proposal.go:415  [n1,s1,r82/1:/{Table/106-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:20.740766 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "create_table", target: 108, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:57:20.742592 102 storage/split_queue.go:93  [split,n1,s1,r83/1:/{Table/107-Max}] splitting at key /Table/108/0
+I170805 20:57:20.742635 102 storage/replica_command.go:2670  [split,n1,s1,r83/1:/{Table/107-Max}] initiating a split of this range at key /Table/108 [r84]
+I170805 20:57:20.749742 68 storage/replica_proposal.go:415  [n1,s1,r83/1:/{Table/107-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:20.756473 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "create_table", target: 109, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:57:20.756835 102 storage/split_queue.go:93  [split,n1,s1,r84/1:/{Table/108-Max}] splitting at key /Table/109/0
+I170805 20:57:20.756867 102 storage/replica_command.go:2670  [split,n1,s1,r84/1:/{Table/108-Max}] initiating a split of this range at key /Table/109 [r85]
+I170805 20:57:20.765257 66 storage/replica_proposal.go:415  [n1,s1,r84/1:/{Table/108-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:20.767592 4637 sql/event_log.go:101  [client=127.0.0.1:57077,user=root,n1] Event: "create_table", target: 110, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:57:20.768783 102 storage/split_queue.go:93  [split,n1,s1,r85/1:/{Table/109-Max}] splitting at key /Table/110/0
+I170805 20:57:20.768818 102 storage/replica_command.go:2670  [split,n1,s1,r85/1:/{Table/109-Max}] initiating a split of this range at key /Table/110 [r86]
+I170805 20:57:20.780830 76 storage/replica_proposal.go:415  [n1,s1,r85/1:/{Table/109-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:27.351298 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 20 MiB/9.3 MiB/37 MiB GO alloc/idle/total, 12 MiB/25 MiB CGO alloc/total, 941.11cgo/sec, 0.03/0.01 %(u/s)time, 0.00 %gc (1x)
+I170805 20:57:32.613872 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "drop_database", target: 106, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 20:57:32.619968 5088 sql/lease.go:372  [client=127.0.0.1:57130,user=root,n1] publish: descID=107 (person) version=2 mtime=2017-08-05 20:57:32.619928026 -0700 PDT
+I170805 20:57:32.640152 5088 sql/lease.go:372  [client=127.0.0.1:57130,user=root,n1] publish: descID=110 (queues) version=2 mtime=2017-08-05 20:57:32.640110098 -0700 PDT
+I170805 20:57:32.659163 5088 sql/lease.go:372  [client=127.0.0.1:57130,user=root,n1] publish: descID=108 (table1) version=2 mtime=2017-08-05 20:57:32.659128963 -0700 PDT
+I170805 20:57:32.675874 5088 sql/lease.go:372  [client=127.0.0.1:57130,user=root,n1] publish: descID=109 (table2) version=2 mtime=2017-08-05 20:57:32.675836348 -0700 PDT
+I170805 20:57:32.693017 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "create_database", target: 111, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 20:57:32.693788 102 storage/split_queue.go:93  [split,n1,s1,r86/1:/{Table/110-Max}] splitting at key /Table/111/0
+I170805 20:57:32.693838 102 storage/replica_command.go:2670  [split,n1,s1,r86/1:/{Table/110-Max}] initiating a split of this range at key /Table/111 [r87]
+I170805 20:57:32.701362 75 storage/replica_proposal.go:415  [n1,s1,r86/1:/{Table/110-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:32.702720 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "create_table", target: 112, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 20:57:32.704234 102 storage/split_queue.go:93  [split,n1,s1,r87/1:/{Table/111-Max}] splitting at key /Table/112/0
+I170805 20:57:32.704280 102 storage/replica_command.go:2670  [split,n1,s1,r87/1:/{Table/111-Max}] initiating a split of this range at key /Table/112 [r88]
+I170805 20:57:32.712152 80 storage/replica_proposal.go:415  [n1,s1,r87/1:/{Table/111-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:32.713907 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "create_table", target: 113, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:57:32.715697 102 storage/split_queue.go:93  [split,n1,s1,r88/1:/{Table/112-Max}] splitting at key /Table/113/0
+I170805 20:57:32.715741 102 storage/replica_command.go:2670  [split,n1,s1,r88/1:/{Table/112-Max}] initiating a split of this range at key /Table/113 [r89]
+I170805 20:57:32.724719 64 storage/replica_proposal.go:415  [n1,s1,r88/1:/{Table/112-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:32.728364 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "create_table", target: 114, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 20:57:32.735561 102 storage/split_queue.go:93  [split,n1,s1,r89/1:/{Table/113-Max}] splitting at key /Table/114/0
+I170805 20:57:32.735605 102 storage/replica_command.go:2670  [split,n1,s1,r89/1:/{Table/113-Max}] initiating a split of this range at key /Table/114 [r90]
+I170805 20:57:32.745465 67 storage/replica_proposal.go:415  [n1,s1,r89/1:/{Table/113-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:32.748155 5088 sql/event_log.go:101  [client=127.0.0.1:57130,user=root,n1] Event: "create_table", target: 115, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 20:57:32.749450 102 storage/split_queue.go:93  [split,n1,s1,r90/1:/{Table/114-Max}] splitting at key /Table/115/0
+I170805 20:57:32.749627 102 storage/replica_command.go:2670  [split,n1,s1,r90/1:/{Table/114-Max}] initiating a split of this range at key /Table/115 [r91]
+I170805 20:57:32.760906 71 storage/replica_proposal.go:415  [n1,s1,r90/1:/{Table/114-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 20:57:37.350451 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 15 MiB/11 MiB/37 MiB GO alloc/idle/total, 12 MiB/25 MiB CGO alloc/total, 988.59cgo/sec, 0.04/0.00 %(u/s)time, 0.00 %gc (2x)
+I170805 20:57:47.351498 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 21 MiB/6.0 MiB/37 MiB GO alloc/idle/total, 12 MiB/25 MiB CGO alloc/total, 86.19cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:57:57.350264 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 15 MiB/12 MiB/38 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 70.01cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:58:07.349915 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 21 MiB/6.7 MiB/38 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 63.00cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:58:17.351919 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 126 goroutines, 15 MiB/12 MiB/38 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 62.09cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:58:17.353564 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+E170805 20:58:17.557072 198 storage/queue.go:734  [n1,replicate] 76 replicas failing with "0 of 0 stores with all attributes matching []; likely not enough nodes in cluster"
+I170805 20:58:27.350057 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 21 MiB/7.0 MiB/38 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 60.61cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:58:37.350358 39 server/status/runtime.go:225  [n1] runtime stats: 65 MiB RSS, 124 goroutines, 13 MiB/14 MiB/39 MiB GO alloc/idle/total, 12 MiB/26 MiB CGO alloc/total, 62.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:58:47.350046 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 19 MiB/9.5 MiB/39 MiB GO alloc/idle/total, 12 MiB/26 MiB CGO alloc/total, 58.00cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:58:57.352899 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 24 MiB/4.6 MiB/39 MiB GO alloc/idle/total, 12 MiB/26 MiB CGO alloc/total, 65.48cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:59:07.351103 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 18 MiB/9.8 MiB/39 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:59:17.349929 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 20:59:17.350163 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 126 goroutines, 24 MiB/4.9 MiB/39 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 60.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:59:27.349980 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 17 MiB/12 MiB/40 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 63.60cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:59:37.352280 39 server/status/runtime.go:225  [n1] runtime stats: 66 MiB RSS, 124 goroutines, 23 MiB/7.2 MiB/40 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 65.19cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 20:59:47.350600 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 16 MiB/13 MiB/40 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 62.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 20:59:57.350218 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 21 MiB/8.3 MiB/40 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:00:07.351622 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 14 MiB/14 MiB/40 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 61.39cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:00:17.351028 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 126 goroutines, 20 MiB/9.6 MiB/40 MiB GO alloc/idle/total, 13 MiB/26 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:00:17.351038 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:00:27.351521 39 server/status/runtime.go:225  [n1] runtime stats: 67 MiB RSS, 124 goroutines, 14 MiB/14 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 72.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:00:37.351508 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 19 MiB/9.6 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:00:47.350552 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 25 MiB/4.8 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 58.01cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:00:57.352118 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 19 MiB/10 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 97.19cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:01:07.350531 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 25 MiB/5.3 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 65.21cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:01:17.350104 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:01:17.350218 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 125 goroutines, 17 MiB/12 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 61.70cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:01:27.350079 39 server/status/runtime.go:225  [n1] runtime stats: 68 MiB RSS, 124 goroutines, 23 MiB/7.2 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 61.80cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:01:37.350471 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 16 MiB/13 MiB/40 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 58.00cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:01:47.352883 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 21 MiB/8.3 MiB/40 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 61.58cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:01:57.350923 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 27 MiB/3.3 MiB/40 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 69.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:02:07.350136 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 18 MiB/12 MiB/41 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:02:17.349857 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:02:17.349954 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 125 goroutines, 24 MiB/6.9 MiB/41 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 59.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:02:27.350241 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 17 MiB/13 MiB/41 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 60.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:02:37.349955 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 22 MiB/8.4 MiB/41 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 62.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:02:47.350062 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 15 MiB/15 MiB/41 MiB GO alloc/idle/total, 15 MiB/28 MiB CGO alloc/total, 61.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:02:57.353112 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 20 MiB/10 MiB/41 MiB GO alloc/idle/total, 16 MiB/28 MiB CGO alloc/total, 61.38cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:03:07.351713 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 26 MiB/5.1 MiB/41 MiB GO alloc/idle/total, 16 MiB/28 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:03:17.349963 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:03:17.350159 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 125 goroutines, 19 MiB/10 MiB/40 MiB GO alloc/idle/total, 16 MiB/28 MiB CGO alloc/total, 94.12cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:03:27.349982 39 server/status/runtime.go:225  [n1] runtime stats: 69 MiB RSS, 124 goroutines, 25 MiB/5.4 MiB/40 MiB GO alloc/idle/total, 16 MiB/28 MiB CGO alloc/total, 65.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:03:37.349973 39 server/status/runtime.go:225  [n1] runtime stats: 70 MiB RSS, 124 goroutines, 17 MiB/12 MiB/40 MiB GO alloc/idle/total, 16 MiB/28 MiB CGO alloc/total, 62.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:03:42.545478 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "drop_database", target: 111, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:03:42.554232 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=112 (person) version=2 mtime=2017-08-05 21:03:42.554179695 -0700 PDT
+I170805 21:03:42.583705 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=115 (queues) version=2 mtime=2017-08-05 21:03:42.583662639 -0700 PDT
+I170805 21:03:42.605460 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=113 (table1) version=2 mtime=2017-08-05 21:03:42.60541505 -0700 PDT
+I170805 21:03:42.636348 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=114 (table2) version=2 mtime=2017-08-05 21:03:42.63629894 -0700 PDT
+I170805 21:03:42.659924 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "create_database", target: 116, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:03:42.660610 102 storage/split_queue.go:93  [split,n1,s1,r91/1:/{Table/115-Max}] splitting at key /Table/116/0
+I170805 21:03:42.660647 102 storage/replica_command.go:2670  [split,n1,s1,r91/1:/{Table/115-Max}] initiating a split of this range at key /Table/116 [r92]
+I170805 21:03:42.670085 89 storage/replica_proposal.go:415  [n1,s1,r91/1:/{Table/115-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:42.675030 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "create_table", target: 117, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:03:42.675679 102 storage/split_queue.go:93  [split,n1,s1,r92/1:/{Table/116-Max}] splitting at key /Table/117/0
+I170805 21:03:42.675714 102 storage/replica_command.go:2670  [split,n1,s1,r92/1:/{Table/116-Max}] initiating a split of this range at key /Table/117 [r93]
+I170805 21:03:42.684128 92 storage/replica_proposal.go:415  [n1,s1,r92/1:/{Table/116-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:42.684629 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "create_table", target: 118, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:03:42.685888 102 storage/split_queue.go:93  [split,n1,s1,r93/1:/{Table/117-Max}] splitting at key /Table/118/0
+I170805 21:03:42.685929 102 storage/replica_command.go:2670  [split,n1,s1,r93/1:/{Table/117-Max}] initiating a split of this range at key /Table/118 [r94]
+I170805 21:03:42.696071 64 storage/replica_proposal.go:415  [n1,s1,r93/1:/{Table/117-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:42.699255 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "create_table", target: 119, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:03:42.700442 102 storage/split_queue.go:93  [split,n1,s1,r94/1:/{Table/118-Max}] splitting at key /Table/119/0
+I170805 21:03:42.700490 102 storage/replica_command.go:2670  [split,n1,s1,r94/1:/{Table/118-Max}] initiating a split of this range at key /Table/119 [r95]
+I170805 21:03:42.712567 86 storage/replica_proposal.go:415  [n1,s1,r94/1:/{Table/118-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:42.713772 6004 sql/event_log.go:101  [client=127.0.0.1:58757,user=root,n1] Event: "create_table", target: 120, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:03:42.715537 102 storage/split_queue.go:93  [split,n1,s1,r95/1:/{Table/119-Max}] splitting at key /Table/120/0
+I170805 21:03:42.715579 102 storage/replica_command.go:2670  [split,n1,s1,r95/1:/{Table/119-Max}] initiating a split of this range at key /Table/120 [r96]
+I170805 21:03:42.725529 82 storage/replica_proposal.go:415  [n1,s1,r95/1:/{Table/119-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:42.837726 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=117 (person) version=2 mtime=2017-08-05 21:03:42.837685035 -0700 PDT
+I170805 21:03:42.851227 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=120 (queues) version=2 mtime=2017-08-05 21:03:42.851186039 -0700 PDT
+I170805 21:03:42.867702 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=118 (table1) version=2 mtime=2017-08-05 21:03:42.867653692 -0700 PDT
+I170805 21:03:42.884190 6004 sql/lease.go:372  [client=127.0.0.1:58757,user=root,n1] publish: descID=119 (table2) version=2 mtime=2017-08-05 21:03:42.884154144 -0700 PDT
+I170805 21:03:47.352978 39 server/status/runtime.go:225  [n1] runtime stats: 70 MiB RSS, 124 goroutines, 16 MiB/13 MiB/41 MiB GO alloc/idle/total, 16 MiB/29 MiB CGO alloc/total, 1455.07cgo/sec, 0.06/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 21:03:53.092780 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "drop_database", target: 116, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:03:53.100082 6579 sql/lease.go:372  [client=127.0.0.1:58808,user=root,n1] publish: descID=117 (person) version=3 mtime=2017-08-05 21:03:53.100030768 -0700 PDT
+I170805 21:03:53.129119 6579 sql/lease.go:372  [client=127.0.0.1:58808,user=root,n1] publish: descID=120 (queues) version=3 mtime=2017-08-05 21:03:53.129066463 -0700 PDT
+I170805 21:03:53.154279 6579 sql/lease.go:372  [client=127.0.0.1:58808,user=root,n1] publish: descID=118 (table1) version=3 mtime=2017-08-05 21:03:53.154232853 -0700 PDT
+I170805 21:03:53.179442 6579 sql/lease.go:372  [client=127.0.0.1:58808,user=root,n1] publish: descID=119 (table2) version=3 mtime=2017-08-05 21:03:53.179407819 -0700 PDT
+I170805 21:03:53.202360 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "create_database", target: 121, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:03:53.202690 102 storage/split_queue.go:93  [split,n1,s1,r96/1:/{Table/120-Max}] splitting at key /Table/121/0
+I170805 21:03:53.202724 102 storage/replica_command.go:2670  [split,n1,s1,r96/1:/{Table/120-Max}] initiating a split of this range at key /Table/121 [r97]
+I170805 21:03:53.211461 65 storage/replica_proposal.go:415  [n1,s1,r96/1:/{Table/120-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:53.212208 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "create_table", target: 122, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:03:53.213637 102 storage/split_queue.go:93  [split,n1,s1,r97/1:/{Table/121-Max}] splitting at key /Table/122/0
+I170805 21:03:53.213678 102 storage/replica_command.go:2670  [split,n1,s1,r97/1:/{Table/121-Max}] initiating a split of this range at key /Table/122 [r98]
+I170805 21:03:53.221044 79 storage/replica_proposal.go:415  [n1,s1,r97/1:/{Table/121-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:53.222843 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "create_table", target: 123, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:03:53.224519 102 storage/split_queue.go:93  [split,n1,s1,r98/1:/{Table/122-Max}] splitting at key /Table/123/0
+I170805 21:03:53.224589 102 storage/replica_command.go:2670  [split,n1,s1,r98/1:/{Table/122-Max}] initiating a split of this range at key /Table/123 [r99]
+I170805 21:03:53.234462 83 storage/replica_proposal.go:415  [n1,s1,r98/1:/{Table/122-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:53.235762 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "create_table", target: 124, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:03:53.237783 102 storage/split_queue.go:93  [split,n1,s1,r99/1:/{Table/123-Max}] splitting at key /Table/124/0
+I170805 21:03:53.237824 102 storage/replica_command.go:2670  [split,n1,s1,r99/1:/{Table/123-Max}] initiating a split of this range at key /Table/124 [r100]
+I170805 21:03:53.249273 90 storage/replica_proposal.go:415  [n1,s1,r99/1:/{Table/123-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:53.250973 6579 sql/event_log.go:101  [client=127.0.0.1:58808,user=root,n1] Event: "create_table", target: 125, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:03:53.252998 102 storage/split_queue.go:93  [split,n1,s1,r100/1:/{Table/124-Max}] splitting at key /Table/125/0
+I170805 21:03:53.253042 102 storage/replica_command.go:2670  [split,n1,s1,r100/1:/{Table/124-Max}] initiating a split of this range at key /Table/125 [r101]
+I170805 21:03:53.261615 65 storage/replica_proposal.go:415  [n1,s1,r100/1:/{Table/124-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:03:57.352791 39 server/status/runtime.go:225  [n1] runtime stats: 71 MiB RSS, 124 goroutines, 22 MiB/10 MiB/41 MiB GO alloc/idle/total, 17 MiB/30 MiB CGO alloc/total, 1047.21cgo/sec, 0.05/0.01 %(u/s)time, 0.00 %gc (1x)
+I170805 21:04:07.350089 39 server/status/runtime.go:225  [n1] runtime stats: 71 MiB RSS, 124 goroutines, 28 MiB/5.1 MiB/41 MiB GO alloc/idle/total, 17 MiB/30 MiB CGO alloc/total, 78.22cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:04:17.351702 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:04:17.351858 39 server/status/runtime.go:225  [n1] runtime stats: 71 MiB RSS, 124 goroutines, 20 MiB/9.8 MiB/41 MiB GO alloc/idle/total, 17 MiB/30 MiB CGO alloc/total, 73.19cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:04:27.350153 39 server/status/runtime.go:225  [n1] runtime stats: 71 MiB RSS, 124 goroutines, 26 MiB/4.9 MiB/41 MiB GO alloc/idle/total, 17 MiB/30 MiB CGO alloc/total, 79.21cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:04:37.350209 39 server/status/runtime.go:225  [n1] runtime stats: 74 MiB RSS, 124 goroutines, 17 MiB/14 MiB/43 MiB GO alloc/idle/total, 17 MiB/30 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:04:47.350093 39 server/status/runtime.go:225  [n1] runtime stats: 73 MiB RSS, 124 goroutines, 23 MiB/9.3 MiB/43 MiB GO alloc/idle/total, 11 MiB/28 MiB CGO alloc/total, 58.30cgo/sec, 0.03/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:04:57.350678 39 server/status/runtime.go:225  [n1] runtime stats: 73 MiB RSS, 124 goroutines, 29 MiB/4.3 MiB/43 MiB GO alloc/idle/total, 12 MiB/28 MiB CGO alloc/total, 65.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:05:07.350573 39 server/status/runtime.go:225  [n1] runtime stats: 73 MiB RSS, 124 goroutines, 20 MiB/12 MiB/43 MiB GO alloc/idle/total, 12 MiB/28 MiB CGO alloc/total, 58.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:05:07.352016 37 storage/store.go:3997  [n1,s1] sstables (read amplification = 1):
+6 [ 1M 1 ]: 1M
+I170805 21:05:14.320133 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "drop_database", target: 121, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:05:14.330113 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=122 (person) version=2 mtime=2017-08-05 21:05:14.33007441 -0700 PDT
+I170805 21:05:14.349872 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=125 (queues) version=2 mtime=2017-08-05 21:05:14.349829293 -0700 PDT
+I170805 21:05:14.376965 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=123 (table1) version=2 mtime=2017-08-05 21:05:14.376917024 -0700 PDT
+I170805 21:05:14.402592 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=124 (table2) version=2 mtime=2017-08-05 21:05:14.402553513 -0700 PDT
+I170805 21:05:14.426476 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "create_database", target: 126, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:05:14.427381 102 storage/split_queue.go:93  [split,n1,s1,r101/1:/{Table/125-Max}] splitting at key /Table/126/0
+I170805 21:05:14.427420 102 storage/replica_command.go:2670  [split,n1,s1,r101/1:/{Table/125-Max}] initiating a split of this range at key /Table/126 [r102]
+I170805 21:05:14.436961 63 storage/replica_proposal.go:415  [n1,s1,r101/1:/{Table/125-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:05:14.438595 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "create_table", target: 127, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:05:14.440319 102 storage/split_queue.go:93  [split,n1,s1,r102/1:/{Table/126-Max}] splitting at key /Table/127/0
+I170805 21:05:14.440361 102 storage/replica_command.go:2670  [split,n1,s1,r102/1:/{Table/126-Max}] initiating a split of this range at key /Table/127 [r103]
+I170805 21:05:14.448408 66 storage/replica_proposal.go:415  [n1,s1,r102/1:/{Table/126-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:05:14.450190 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "create_table", target: 128, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:05:14.452537 102 storage/split_queue.go:93  [split,n1,s1,r103/1:/{Table/127-Max}] splitting at key /Table/128/0
+I170805 21:05:14.452590 102 storage/replica_command.go:2670  [split,n1,s1,r103/1:/{Table/127-Max}] initiating a split of this range at key /Table/128 [r104]
+I170805 21:05:14.464099 74 storage/replica_proposal.go:415  [n1,s1,r103/1:/{Table/127-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:05:14.465460 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "create_table", target: 129, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:05:14.467504 102 storage/split_queue.go:93  [split,n1,s1,r104/1:/{Table/128-Max}] splitting at key /Table/129/0
+I170805 21:05:14.467540 102 storage/replica_command.go:2670  [split,n1,s1,r104/1:/{Table/128-Max}] initiating a split of this range at key /Table/129 [r105]
+I170805 21:05:14.479428 78 storage/replica_proposal.go:415  [n1,s1,r104/1:/{Table/128-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:05:14.480294 7139 sql/event_log.go:101  [client=127.0.0.1:59153,user=root,n1] Event: "create_table", target: 130, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:05:14.483261 102 storage/split_queue.go:93  [split,n1,s1,r105/1:/{Table/129-Max}] splitting at key /Table/130/0
+I170805 21:05:14.483302 102 storage/replica_command.go:2670  [split,n1,s1,r105/1:/{Table/129-Max}] initiating a split of this range at key /Table/130 [r106]
+I170805 21:05:14.489431 62 storage/replica_proposal.go:415  [n1,s1,r105/1:/{Table/129-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:05:14.602729 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=127 (person) version=2 mtime=2017-08-05 21:05:14.602690935 -0700 PDT
+I170805 21:05:14.614239 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=130 (queues) version=2 mtime=2017-08-05 21:05:14.614202265 -0700 PDT
+I170805 21:05:14.629992 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=128 (table1) version=2 mtime=2017-08-05 21:05:14.629940974 -0700 PDT
+I170805 21:05:14.654769 7139 sql/lease.go:372  [client=127.0.0.1:59153,user=root,n1] publish: descID=129 (table2) version=2 mtime=2017-08-05 21:05:14.65473336 -0700 PDT
+I170805 21:05:17.352772 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:05:17.352806 39 server/status/runtime.go:225  [n1] runtime stats: 74 MiB RSS, 125 goroutines, 17 MiB/14 MiB/43 MiB GO alloc/idle/total, 12 MiB/28 MiB CGO alloc/total, 1552.04cgo/sec, 0.06/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 21:05:27.349995 39 server/status/runtime.go:225  [n1] runtime stats: 81 MiB RSS, 124 goroutines, 19 MiB/16 MiB/47 MiB GO alloc/idle/total, 16 MiB/32 MiB CGO alloc/total, 92.03cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:05:37.349929 39 server/status/runtime.go:225  [n1] runtime stats: 82 MiB RSS, 124 goroutines, 25 MiB/11 MiB/47 MiB GO alloc/idle/total, 17 MiB/32 MiB CGO alloc/total, 103.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:05:47.350038 39 server/status/runtime.go:225  [n1] runtime stats: 82 MiB RSS, 124 goroutines, 11 MiB/23 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 84.90cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:05:57.350082 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 124 goroutines, 17 MiB/19 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 64.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:06:07.353043 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 124 goroutines, 13 MiB/22 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 58.88cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:06:17.353273 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 124 goroutines, 19 MiB/17 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 97.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:06:17.353372 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:06:27.350220 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 124 goroutines, 14 MiB/21 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 68.82cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:06:37.350047 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 124 goroutines, 20 MiB/16 MiB/47 MiB GO alloc/idle/total, 17 MiB/33 MiB CGO alloc/total, 62.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:06:46.365266 7834 sql/lease.go:372  [client=127.0.0.1:59544,user=test_user,n1] publish: descID=127 (person) version=3 mtime=2017-08-05 21:06:46.365216128 -0700 PDT
+I170805 21:06:46.371179 7834 sql/lease.go:301  publish (count leases): descID=127 name=person version=2 count=1
+I170805 21:06:46.404425 7834 sql/lease.go:372  [client=127.0.0.1:59544,user=test_user,n1] publish: descID=130 (queues) version=3 mtime=2017-08-05 21:06:46.40438966 -0700 PDT
+I170805 21:06:46.418013 7834 sql/lease.go:372  [client=127.0.0.1:59544,user=test_user,n1] publish: descID=128 (table1) version=3 mtime=2017-08-05 21:06:46.41797831 -0700 PDT
+I170805 21:06:46.422186 7834 sql/lease.go:301  publish (count leases): descID=128 name=table1 version=2 count=1
+I170805 21:06:46.463486 7834 sql/lease.go:372  [client=127.0.0.1:59544,user=test_user,n1] publish: descID=129 (table2) version=3 mtime=2017-08-05 21:06:46.463425382 -0700 PDT
+I170805 21:06:46.471660 7834 sql/lease.go:301  publish (count leases): descID=129 name=table2 version=2 count=1
+I170805 21:06:47.351438 39 server/status/runtime.go:225  [n1] runtime stats: 84 MiB RSS, 125 goroutines, 20 MiB/18 MiB/47 MiB GO alloc/idle/total, 18 MiB/33 MiB CGO alloc/total, 703.10cgo/sec, 0.04/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 21:06:57.350079 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 15 MiB/20 MiB/47 MiB GO alloc/idle/total, 18 MiB/33 MiB CGO alloc/total, 58.31cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:07:01.654692 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "drop_database", target: 126, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:07:01.673600 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=127 (person) version=4 mtime=2017-08-05 21:07:01.673551703 -0700 PDT
+I170805 21:07:01.697878 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=130 (queues) version=4 mtime=2017-08-05 21:07:01.697830066 -0700 PDT
+I170805 21:07:01.723035 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=128 (table1) version=4 mtime=2017-08-05 21:07:01.722990587 -0700 PDT
+I170805 21:07:01.755301 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=129 (table2) version=4 mtime=2017-08-05 21:07:01.755261368 -0700 PDT
+I170805 21:07:01.788075 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "create_database", target: 131, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:07:01.789685 102 storage/split_queue.go:93  [split,n1,s1,r106/1:/{Table/130-Max}] splitting at key /Table/131/0
+I170805 21:07:01.789731 102 storage/replica_command.go:2670  [split,n1,s1,r106/1:/{Table/130-Max}] initiating a split of this range at key /Table/131 [r107]
+I170805 21:07:01.800997 90 storage/replica_proposal.go:415  [n1,s1,r106/1:/{Table/130-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:01.805469 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "create_table", target: 132, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:07:01.806661 102 storage/split_queue.go:93  [split,n1,s1,r107/1:/{Table/131-Max}] splitting at key /Table/132/0
+I170805 21:07:01.806705 102 storage/replica_command.go:2670  [split,n1,s1,r107/1:/{Table/131-Max}] initiating a split of this range at key /Table/132 [r108]
+I170805 21:07:01.817882 64 storage/replica_proposal.go:415  [n1,s1,r107/1:/{Table/131-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:01.820734 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "create_table", target: 133, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:07:01.823682 102 storage/split_queue.go:93  [split,n1,s1,r108/1:/{Table/132-Max}] splitting at key /Table/133/0
+I170805 21:07:01.823742 102 storage/replica_command.go:2670  [split,n1,s1,r108/1:/{Table/132-Max}] initiating a split of this range at key /Table/133 [r109]
+I170805 21:07:01.842950 86 storage/replica_proposal.go:415  [n1,s1,r108/1:/{Table/132-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:01.846681 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "create_table", target: 134, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:07:01.847447 102 storage/split_queue.go:93  [split,n1,s1,r109/1:/{Table/133-Max}] splitting at key /Table/134/0
+I170805 21:07:01.847482 102 storage/replica_command.go:2670  [split,n1,s1,r109/1:/{Table/133-Max}] initiating a split of this range at key /Table/134 [r110]
+I170805 21:07:01.857148 64 storage/replica_proposal.go:415  [n1,s1,r109/1:/{Table/133-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:01.860372 8245 sql/event_log.go:101  [client=127.0.0.1:59615,user=root,n1] Event: "create_table", target: 135, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:07:01.862001 102 storage/split_queue.go:93  [split,n1,s1,r110/1:/{Table/134-Max}] splitting at key /Table/135/0
+I170805 21:07:01.862252 102 storage/replica_command.go:2670  [split,n1,s1,r110/1:/{Table/134-Max}] initiating a split of this range at key /Table/135 [r111]
+I170805 21:07:01.869573 80 storage/replica_proposal.go:415  [n1,s1,r110/1:/{Table/134-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:02.003029 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=132 (person) version=2 mtime=2017-08-05 21:07:02.002977718 -0700 PDT
+I170805 21:07:02.027691 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=135 (queues) version=2 mtime=2017-08-05 21:07:02.027641287 -0700 PDT
+I170805 21:07:02.050037 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=133 (table1) version=2 mtime=2017-08-05 21:07:02.04999312 -0700 PDT
+I170805 21:07:02.066686 8245 sql/lease.go:372  [client=127.0.0.1:59615,user=root,n1] publish: descID=134 (table2) version=2 mtime=2017-08-05 21:07:02.066648072 -0700 PDT
+I170805 21:07:02.189674 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=132 (person) version=3 mtime=2017-08-05 21:07:02.189620963 -0700 PDT
+I170805 21:07:02.196688 8888 sql/lease.go:301  publish (count leases): descID=132 name=person version=2 count=1
+I170805 21:07:02.236212 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=135 (queues) version=3 mtime=2017-08-05 21:07:02.236161299 -0700 PDT
+I170805 21:07:02.255853 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=133 (table1) version=3 mtime=2017-08-05 21:07:02.255803793 -0700 PDT
+I170805 21:07:02.261580 8888 sql/lease.go:301  publish (count leases): descID=133 name=table1 version=2 count=1
+I170805 21:07:02.301535 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=134 (table2) version=3 mtime=2017-08-05 21:07:02.301483771 -0700 PDT
+I170805 21:07:02.307573 8888 sql/lease.go:301  publish (count leases): descID=134 name=table2 version=2 count=1
+I170805 21:07:04.922968 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "drop_database", target: 131, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:07:04.934029 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=132 (person) version=4 mtime=2017-08-05 21:07:04.933992647 -0700 PDT
+I170805 21:07:04.955718 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=135 (queues) version=4 mtime=2017-08-05 21:07:04.955681317 -0700 PDT
+I170805 21:07:04.972553 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=133 (table1) version=4 mtime=2017-08-05 21:07:04.972515625 -0700 PDT
+I170805 21:07:04.997809 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=134 (table2) version=4 mtime=2017-08-05 21:07:04.99776989 -0700 PDT
+I170805 21:07:05.017680 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "create_database", target: 136, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:07:05.018628 102 storage/split_queue.go:93  [split,n1,s1,r111/1:/{Table/135-Max}] splitting at key /Table/136/0
+I170805 21:07:05.018666 102 storage/replica_command.go:2670  [split,n1,s1,r111/1:/{Table/135-Max}] initiating a split of this range at key /Table/136 [r112]
+I170805 21:07:05.027074 87 storage/replica_proposal.go:415  [n1,s1,r111/1:/{Table/135-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:05.030550 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "create_table", target: 137, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:07:05.032530 102 storage/split_queue.go:93  [split,n1,s1,r112/1:/{Table/136-Max}] splitting at key /Table/137/0
+I170805 21:07:05.032576 102 storage/replica_command.go:2670  [split,n1,s1,r112/1:/{Table/136-Max}] initiating a split of this range at key /Table/137 [r113]
+I170805 21:07:05.041380 92 storage/replica_proposal.go:415  [n1,s1,r112/1:/{Table/136-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:05.043208 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "create_table", target: 138, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:07:05.044758 102 storage/split_queue.go:93  [split,n1,s1,r113/1:/{Table/137-Max}] splitting at key /Table/138/0
+I170805 21:07:05.044795 102 storage/replica_command.go:2670  [split,n1,s1,r113/1:/{Table/137-Max}] initiating a split of this range at key /Table/138 [r114]
+I170805 21:07:05.055937 70 storage/replica_proposal.go:415  [n1,s1,r113/1:/{Table/137-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:05.060441 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "create_table", target: 139, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:07:05.061924 102 storage/split_queue.go:93  [split,n1,s1,r114/1:/{Table/138-Max}] splitting at key /Table/139/0
+I170805 21:07:05.061964 102 storage/replica_command.go:2670  [split,n1,s1,r114/1:/{Table/138-Max}] initiating a split of this range at key /Table/139 [r115]
+I170805 21:07:05.071140 66 storage/replica_proposal.go:415  [n1,s1,r114/1:/{Table/138-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:05.076499 9198 sql/event_log.go:101  [client=127.0.0.1:59642,user=root,n1] Event: "create_table", target: 140, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:07:05.080118 102 storage/split_queue.go:93  [split,n1,s1,r115/1:/{Table/139-Max}] splitting at key /Table/140/0
+I170805 21:07:05.080157 102 storage/replica_command.go:2670  [split,n1,s1,r115/1:/{Table/139-Max}] initiating a split of this range at key /Table/140 [r116]
+I170805 21:07:05.088797 87 storage/replica_proposal.go:415  [n1,s1,r115/1:/{Table/139-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:07:05.211393 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=137 (person) version=2 mtime=2017-08-05 21:07:05.211341656 -0700 PDT
+I170805 21:07:05.233272 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=140 (queues) version=2 mtime=2017-08-05 21:07:05.233229746 -0700 PDT
+I170805 21:07:05.256001 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=138 (table1) version=2 mtime=2017-08-05 21:07:05.255960581 -0700 PDT
+I170805 21:07:05.273923 9198 sql/lease.go:372  [client=127.0.0.1:59642,user=root,n1] publish: descID=139 (table2) version=2 mtime=2017-08-05 21:07:05.273887943 -0700 PDT
+I170805 21:07:05.353156 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=137 (person) version=3 mtime=2017-08-05 21:07:05.35312081 -0700 PDT
+I170805 21:07:05.357794 8888 sql/lease.go:301  publish (count leases): descID=137 name=person version=2 count=1
+I170805 21:07:05.393995 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=140 (queues) version=3 mtime=2017-08-05 21:07:05.39393879 -0700 PDT
+I170805 21:07:05.410427 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=138 (table1) version=3 mtime=2017-08-05 21:07:05.410387481 -0700 PDT
+I170805 21:07:05.414868 8888 sql/lease.go:301  publish (count leases): descID=138 name=table1 version=2 count=1
+I170805 21:07:05.459841 8888 sql/lease.go:372  [client=127.0.0.1:59621,user=test_user,n1] publish: descID=139 (table2) version=3 mtime=2017-08-05 21:07:05.459770805 -0700 PDT
+I170805 21:07:05.465691 8888 sql/lease.go:301  publish (count leases): descID=139 name=table2 version=2 count=1
+I170805 21:07:07.350159 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 125 goroutines, 21 MiB/18 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 4687.95cgo/sec, 0.19/0.02 %(u/s)time, 0.00 %gc (7x)
+I170805 21:07:17.352634 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:07:17.352820 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 125 goroutines, 16 MiB/19 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 74.08cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:07:27.351325 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 22 MiB/14 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 105.01cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:07:37.350559 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 16 MiB/19 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 68.11cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:07:47.350095 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 22 MiB/14 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 66.80cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:07:57.352629 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 16 MiB/19 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 65.48cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:08:07.352050 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 21 MiB/14 MiB/48 MiB GO alloc/idle/total, 19 MiB/33 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:08:17.352544 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 126 goroutines, 15 MiB/20 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 59.20cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:08:17.352645 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+E170805 21:08:17.558006 198 storage/queue.go:734  [n1,replicate] 101 replicas failing with "0 of 0 stores with all attributes matching []; likely not enough nodes in cluster"
+I170805 21:08:27.350054 39 server/status/runtime.go:225  [n1] runtime stats: 85 MiB RSS, 124 goroutines, 21 MiB/15 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 64.72cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:08:37.350171 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 15 MiB/20 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 65.50cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:08:47.351067 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 20 MiB/15 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 58.89cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:08:57.350191 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 14 MiB/20 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 61.41cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:09:07.350026 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 20 MiB/16 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 58.30cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:09:17.352598 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 26 MiB/11 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 62.28cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:09:17.352785 38 gossip/gossip.go:448  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I170805 21:09:27.350135 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 18 MiB/17 MiB/48 MiB GO alloc/idle/total, 20 MiB/34 MiB CGO alloc/total, 68.82cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:09:37.351182 39 server/status/runtime.go:225  [n1] runtime stats: 86 MiB RSS, 124 goroutines, 24 MiB/12 MiB/48 MiB GO alloc/idle/total, 21 MiB/35 MiB CGO alloc/total, 58.29cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (0x)
+I170805 21:09:39.975878 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "drop_database", target: 136, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:09:39.984241 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=137 (person) version=4 mtime=2017-08-05 21:09:39.984201631 -0700 PDT
+I170805 21:09:40.002595 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=140 (queues) version=4 mtime=2017-08-05 21:09:40.002557883 -0700 PDT
+I170805 21:09:40.019001 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=138 (table1) version=4 mtime=2017-08-05 21:09:40.018963679 -0700 PDT
+I170805 21:09:40.042503 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=139 (table2) version=4 mtime=2017-08-05 21:09:40.042436544 -0700 PDT
+I170805 21:09:40.065057 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "create_database", target: 141, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:09:40.066235 102 storage/split_queue.go:93  [split,n1,s1,r116/1:/{Table/140-Max}] splitting at key /Table/141/0
+I170805 21:09:40.066276 102 storage/replica_command.go:2670  [split,n1,s1,r116/1:/{Table/140-Max}] initiating a split of this range at key /Table/141 [r117]
+I170805 21:09:40.075466 63 storage/replica_proposal.go:415  [n1,s1,r116/1:/{Table/140-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:40.077009 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "create_table", target: 142, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:09:40.078304 102 storage/split_queue.go:93  [split,n1,s1,r117/1:/{Table/141-Max}] splitting at key /Table/142/0
+I170805 21:09:40.078351 102 storage/replica_command.go:2670  [split,n1,s1,r117/1:/{Table/141-Max}] initiating a split of this range at key /Table/142 [r118]
+I170805 21:09:40.086734 66 storage/replica_proposal.go:415  [n1,s1,r117/1:/{Table/141-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:40.087335 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "create_table", target: 143, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:09:40.089887 102 storage/split_queue.go:93  [split,n1,s1,r118/1:/{Table/142-Max}] splitting at key /Table/143/0
+I170805 21:09:40.089926 102 storage/replica_command.go:2670  [split,n1,s1,r118/1:/{Table/142-Max}] initiating a split of this range at key /Table/143 [r119]
+I170805 21:09:40.101957 85 storage/replica_proposal.go:415  [n1,s1,r118/1:/{Table/142-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:40.102625 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "create_table", target: 144, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:09:40.106637 102 storage/split_queue.go:93  [split,n1,s1,r119/1:/{Table/143-Max}] splitting at key /Table/144/0
+I170805 21:09:40.106681 102 storage/replica_command.go:2670  [split,n1,s1,r119/1:/{Table/143-Max}] initiating a split of this range at key /Table/144 [r120]
+I170805 21:09:40.116922 69 storage/replica_proposal.go:415  [n1,s1,r119/1:/{Table/143-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:40.124711 10515 sql/event_log.go:101  [client=127.0.0.1:60289,user=root,n1] Event: "create_table", target: 145, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:09:40.126333 102 storage/split_queue.go:93  [split,n1,s1,r120/1:/{Table/144-Max}] splitting at key /Table/145/0
+I170805 21:09:40.126374 102 storage/replica_command.go:2670  [split,n1,s1,r120/1:/{Table/144-Max}] initiating a split of this range at key /Table/145 [r121]
+I170805 21:09:40.136067 85 storage/replica_proposal.go:415  [n1,s1,r120/1:/{Table/144-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:40.257718 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=142 (person) version=2 mtime=2017-08-05 21:09:40.257681086 -0700 PDT
+I170805 21:09:40.270878 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=145 (queues) version=2 mtime=2017-08-05 21:09:40.270839306 -0700 PDT
+I170805 21:09:40.296277 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=143 (table1) version=2 mtime=2017-08-05 21:09:40.296234577 -0700 PDT
+I170805 21:09:40.313483 10515 sql/lease.go:372  [client=127.0.0.1:60289,user=root,n1] publish: descID=144 (table2) version=2 mtime=2017-08-05 21:09:40.313448764 -0700 PDT
+I170805 21:09:41.881341 11106 sql/lease.go:372  [client=127.0.0.1:60307,user=test_user,n1] publish: descID=142 (person) version=3 mtime=2017-08-05 21:09:41.881288532 -0700 PDT
+I170805 21:09:41.887917 11106 sql/lease.go:301  publish (count leases): descID=142 name=person version=2 count=1
+I170805 21:09:41.924599 11106 sql/lease.go:372  [client=127.0.0.1:60307,user=test_user,n1] publish: descID=145 (queues) version=3 mtime=2017-08-05 21:09:41.924549146 -0700 PDT
+I170805 21:09:41.939573 11106 sql/lease.go:372  [client=127.0.0.1:60307,user=test_user,n1] publish: descID=143 (table1) version=3 mtime=2017-08-05 21:09:41.939533483 -0700 PDT
+I170805 21:09:41.944654 11106 sql/lease.go:301  publish (count leases): descID=143 name=table1 version=2 count=1
+I170805 21:09:41.983840 11106 sql/lease.go:372  [client=127.0.0.1:60307,user=test_user,n1] publish: descID=144 (table2) version=3 mtime=2017-08-05 21:09:41.983800332 -0700 PDT
+I170805 21:09:41.990926 11106 sql/lease.go:301  publish (count leases): descID=144 name=table2 version=2 count=1
+I170805 21:09:47.350397 39 server/status/runtime.go:225  [n1] runtime stats: 87 MiB RSS, 125 goroutines, 19 MiB/18 MiB/48 MiB GO alloc/idle/total, 21 MiB/35 MiB CGO alloc/total, 2510.79cgo/sec, 0.09/0.01 %(u/s)time, 0.00 %gc (4x)
+I170805 21:09:53.107913 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "drop_database", target: 141, info: {DatabaseName:simplewebapp Statement:DROP DATABASE IF EXISTS simplewebapp User:root DroppedTablesAndViews:[person queues table1 table2]}
+I170805 21:09:53.116734 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=142 (person) version=4 mtime=2017-08-05 21:09:53.116687058 -0700 PDT
+I170805 21:09:53.146639 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=145 (queues) version=4 mtime=2017-08-05 21:09:53.146592434 -0700 PDT
+I170805 21:09:53.171404 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=143 (table1) version=4 mtime=2017-08-05 21:09:53.171364813 -0700 PDT
+I170805 21:09:53.194925 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=144 (table2) version=4 mtime=2017-08-05 21:09:53.194888921 -0700 PDT
+I170805 21:09:53.219304 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "create_database", target: 146, info: {DatabaseName:simplewebapp Statement:CREATE DATABASE simplewebapp User:root}
+I170805 21:09:53.220913 102 storage/split_queue.go:93  [split,n1,s1,r121/1:/{Table/145-Max}] splitting at key /Table/146/0
+I170805 21:09:53.220955 102 storage/replica_command.go:2670  [split,n1,s1,r121/1:/{Table/145-Max}] initiating a split of this range at key /Table/146 [r122]
+I170805 21:09:53.232574 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "create_table", target: 147, info: {TableName:person Statement:CREATE TABLE person (id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, password VARCHAR(50)) User:root}
+I170805 21:09:53.232687 81 storage/replica_proposal.go:415  [n1,s1,r121/1:/{Table/145-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:53.234610 102 storage/split_queue.go:93  [split,n1,s1,r122/1:/{Table/146-Max}] splitting at key /Table/147/0
+I170805 21:09:53.234665 102 storage/replica_command.go:2670  [split,n1,s1,r122/1:/{Table/146-Max}] initiating a split of this range at key /Table/147 [r123]
+I170805 21:09:53.252550 61 storage/replica_proposal.go:415  [n1,s1,r122/1:/{Table/146-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:53.254547 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "create_table", target: 148, info: {TableName:table1 Statement:CREATE TABLE table1 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:09:53.255893 102 storage/split_queue.go:93  [split,n1,s1,r123/1:/{Table/147-Max}] splitting at key /Table/148/0
+I170805 21:09:53.255933 102 storage/replica_command.go:2670  [split,n1,s1,r123/1:/{Table/147-Max}] initiating a split of this range at key /Table/148 [r124]
+I170805 21:09:53.268911 92 storage/replica_proposal.go:415  [n1,s1,r123/1:/{Table/147-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:53.270442 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "create_table", target: 149, info: {TableName:table2 Statement:CREATE TABLE table2 (id SERIAL PRIMARY KEY, column1 INT, column2 DECIMAL, column3 BOOL, column4 DATE, column5 TIMESTAMP, column6 STRING) User:root}
+I170805 21:09:53.271939 102 storage/split_queue.go:93  [split,n1,s1,r124/1:/{Table/148-Max}] splitting at key /Table/149/0
+I170805 21:09:53.271981 102 storage/replica_command.go:2670  [split,n1,s1,r124/1:/{Table/148-Max}] initiating a split of this range at key /Table/149 [r125]
+I170805 21:09:53.280904 80 storage/replica_proposal.go:415  [n1,s1,r124/1:/{Table/148-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:53.283202 11539 sql/event_log.go:101  [client=127.0.0.1:60364,user=root,n1] Event: "create_table", target: 150, info: {TableName:queues Statement:CREATE TABLE queues (queuename STRING PRIMARY KEY) User:root}
+I170805 21:09:53.284834 102 storage/split_queue.go:93  [split,n1,s1,r125/1:/{Table/149-Max}] splitting at key /Table/150/0
+I170805 21:09:53.284878 102 storage/replica_command.go:2670  [split,n1,s1,r125/1:/{Table/149-Max}] initiating a split of this range at key /Table/150 [r126]
+I170805 21:09:53.298354 78 storage/replica_proposal.go:415  [n1,s1,r125/1:/{Table/149-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0 following repl=(n1,s1):1 start=0.000000000,0 epo=2 pro=1501991297.753100607,0
+I170805 21:09:53.405391 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=147 (person) version=2 mtime=2017-08-05 21:09:53.405355836 -0700 PDT
+I170805 21:09:53.422074 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=150 (queues) version=2 mtime=2017-08-05 21:09:53.422026113 -0700 PDT
+I170805 21:09:53.447834 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=148 (table1) version=2 mtime=2017-08-05 21:09:53.447795297 -0700 PDT
+I170805 21:09:53.463727 11539 sql/lease.go:372  [client=127.0.0.1:60364,user=root,n1] publish: descID=149 (table2) version=2 mtime=2017-08-05 21:09:53.463687522 -0700 PDT
+I170805 21:09:57.350085 39 server/status/runtime.go:225  [n1] runtime stats: 88 MiB RSS, 124 goroutines, 24 MiB/16 MiB/48 MiB GO alloc/idle/total, 22 MiB/36 MiB CGO alloc/total, 1850.46cgo/sec, 0.07/0.01 %(u/s)time, 0.00 %gc (2x)
+I170805 21:09:59.495033 1 cli/start.go:446  received signal 'interrupt'
+I170805 21:09:59.495475 1 cli/start.go:471  initiating graceful shutdown of server
+I170805 21:09:59.501872 154 vendor/google.golang.org/grpc/transport/http2_server.go:323  transport: http2Server.HandleStreams failed to read frame: read tcp 127.0.0.1:26257->127.0.0.1:54666: use of closed network connection
+I170805 21:09:59.502752 11920 storage/engine/rocksdb.go:447  closing rocksdb instance at "/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data"
+I170805 21:09:59.509745 1 cli/start.go:503  server drained and shutdown completed
+E170805 21:09:59.510177 1 cli/error.go:68  interrupted
+Error: interrupted

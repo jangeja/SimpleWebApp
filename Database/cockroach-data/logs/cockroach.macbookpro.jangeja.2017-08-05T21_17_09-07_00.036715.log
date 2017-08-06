@@ -1,0 +1,188 @@
+I170805 21:17:09.784110 1 util/log/clog.go:1011  [config] file created at: 2017/08/05 21:17:09
+I170805 21:17:09.784110 1 util/log/clog.go:1011  [config] running on machine: macbookpro
+I170805 21:17:09.784110 1 util/log/clog.go:1011  [config] binary: CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 21:17:09.784110 1 util/log/clog.go:1011  [config] arguments: [cockroach start --insecure --host=localhost]
+I170805 21:17:09.784110 1 util/log/clog.go:1011  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+W170805 21:17:09.784107 1 cli/start.go:587  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access localhost.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/secure-a-cluster.html
+I170805 21:17:09.785145 1 cli/start.go:593  CockroachDB CCL v1.0.4 (darwin amd64, built 2017/07/27 21:13:34, go1.8.3)
+I170805 21:17:09.889497 1 server/config.go:375  system total memory: 8.0 GiB
+I170805 21:17:09.889636 1 server/config.go:377  server configuration:
+max offset                   500ms
+cache size                   2.0 GiB
+SQL memory pool size         2.0 GiB
+scan interval                10m0s
+scan max idle time           200ms
+consistency check interval   24h0m0s
+metrics sample interval      10s
+time until store dead        5m0s
+send next timeout            500ms
+event log enabled            true
+linearizable                 false
+I170805 21:17:09.889846 6 cli/start.go:340  starting cockroach node
+W170805 21:17:09.900679 6 server/config_unix.go:106  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/recommended-production-settings.html for more details
+I170805 21:17:09.900996 6 storage/engine/rocksdb.go:380  opening rocksdb instance at "/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data"
+I170805 21:17:09.918533 6 server/config.go:475  [n?] 1 storage engine initialized
+I170805 21:17:09.918568 6 server/config.go:477  [n?] RocksDB cache size: 2.0 GiB
+I170805 21:17:09.918584 6 server/config.go:477  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+I170805 21:17:09.919331 6 server/server.go:672  [n?] sleeping for 478.767317ms to guarantee HLC monotonicity
+W170805 21:17:10.437501 112 storage/store.go:1339  [n1,s1,r5/1:/Table/{0-11}] could not gossip system config: [NotLeaseHolderError] r5: replica (n1,s1):1 not lease holder; lease holder unknown
+I170805 21:17:10.438317 6 storage/store.go:1252  [n1] [n1,s1]: failed initial metrics computation: [n1,s1]: system config not yet available
+I170805 21:17:10.438565 6 server/node.go:467  [n1] initialized store [n1,s1]: {Capacity:126823432192 Available:25440321536 RangeCount:111 LeaseCount:0}
+I170805 21:17:10.438609 6 server/node.go:351  [n1] node ID 1 initialized
+I170805 21:17:10.438763 6 gossip/gossip.go:297  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> 
+I170805 21:17:10.438976 6 storage/stores.go:296  [n1] read 0 node addresses from persistent storage
+I170805 21:17:10.441326 6 server/node.go:608  [n1] connecting to gossip network to verify cluster ID...
+I170805 21:17:10.441369 6 server/node.go:633  [n1] node connected via gossip and verified as part of cluster "6c839292-0e43-456e-89cb-64ba28b9951c"
+I170805 21:17:10.441491 6 server/node.go:405  [n1] node=1: started with [[]=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data] engine(s) and attributes []
+I170805 21:17:10.443032 6 sql/executor.go:338  [n1] creating distSQLPlanner with address {tcp localhost:26257}
+I170805 21:17:10.452284 6 server/server.go:735  [n1] starting http server at localhost:8080
+I170805 21:17:10.452399 6 server/server.go:736  [n1] starting grpc/postgres server at localhost:26257
+I170805 21:17:10.452600 6 server/server.go:737  [n1] advertising CockroachDB node at localhost:26257
+I170805 21:17:10.453759 6 server/server.go:847  [n1] done ensuring all necessary migrations have run
+I170805 21:17:10.453799 6 server/server.go:849  [n1] serving sql connections
+I170805 21:17:10.453948 6 cli/start.go:411  node startup completed:
+CockroachDB node starting at 2017-08-05 21:17:10.453837369 -0700 PDT
+build:      CCL v1.0.4 @ 2017/07/27 21:13:34 (go1.8.3)
+admin:      http://localhost:8080
+sql:        postgresql://root@localhost:26257?sslmode=disable
+logs:       /Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data/logs
+store[0]:   path=/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data
+status:     restarted pre-existing node
+clusterID:  6c839292-0e43-456e-89cb-64ba28b9951c
+nodeID:     1
+I170805 21:17:10.455974 157 storage/node_liveness.go:250  [n1,hb] heartbeat failed on epoch increment; retrying
+I170805 21:17:10.456976 76 storage/replica_proposal.go:415  [n1,s1,r5/1:/Table/{0-11}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.452754492,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.898777978,0
+I170805 21:17:10.457656 85 storage/replica_proposal.go:415  [n1,s1,r3/1:/System/ts{d-e}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.453200447,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.901775690,0
+I170805 21:17:10.464767 78 storage/replica_proposal.go:415  [n1,s1,r7/1:/Table/1{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.461888036,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501993002.907421388,0
+I170805 21:17:10.469070 170 sql/event_log.go:101  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:{NetworkField:tcp AddressField:localhost:26257} Attrs: Locality:} ClusterID:6c839292-0e43-456e-89cb-64ba28b9951c StartedAt:1501993030441373093 LastUp:1501993005858635542}
+I170805 21:17:10.646729 94 storage/replica_proposal.go:415  [n1,s1,r51/1:/Table/7{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993030.641618338,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992679.951783099,0
+I170805 21:17:10.847560 79 storage/replica_proposal.go:415  [n1,s1,r6/1:/Table/1{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993030.842757300,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992691.518425132,0
+I170805 21:17:11.049468 102 storage/replica_proposal.go:415  [n1,s1,r119/1:/Table/14{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993031.043938866,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992697.597908923,0
+I170805 21:17:11.249905 76 storage/replica_proposal.go:415  [n1,s1,r7/1:/Table/1{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993031.245932927,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.461888036,0
+I170805 21:17:11.451714 100 storage/replica_proposal.go:415  [n1,s1,r68/1:/Table/9{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993031.447081363,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992699.429567434,0
+I170805 21:17:11.654123 75 storage/replica_proposal.go:415  [n1,s1,r100/1:/Table/12{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993031.649162957,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992679.346557887,0
+I170805 21:17:11.855588 90 storage/replica_proposal.go:415  [n1,s1,r125/1:/Table/1{49-50}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993031.850494035,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992698.610792833,0
+I170805 21:17:12.056750 88 storage/replica_proposal.go:415  [n1,s1,r96/1:/Table/12{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993032.051174211,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992917.951818467,0
+I170805 21:17:12.255944 104 storage/replica_proposal.go:415  [n1,s1,r78/1:/Table/10{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993032.251832282,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992688.258384226,0
+I170805 21:17:12.459788 89 storage/replica_proposal.go:415  [n1,s1,r112/1:/Table/13{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993032.454455594,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992700.443245923,0
+I170805 21:17:12.662777 91 storage/replica_proposal.go:415  [n1,s1,r50/1:/Table/7{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993032.657636602,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992690.702121836,0
+I170805 21:17:12.863505 75 storage/replica_proposal.go:415  [n1,s1,r80/1:/Table/10{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993032.858268858,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992692.940663379,0
+I170805 21:17:13.068306 89 storage/replica_proposal.go:415  [n1,s1,r8/1:/Table/1{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993033.062990152,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992678.742857854,0
+I170805 21:17:13.268546 101 storage/replica_proposal.go:415  [n1,s1,r21/1:/Table/6{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993033.263605050,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.504012525,0
+I170805 21:17:13.467138 79 storage/replica_proposal.go:415  [n1,s1,r24/1:/Table/6{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993033.464761120,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.098391164,0
+I170805 21:17:13.670510 80 storage/replica_proposal.go:415  [n1,s1,r53/1:/Table/7{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993033.665384910,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992684.409505025,0
+I170805 21:17:13.876115 101 storage/replica_proposal.go:415  [n1,s1,r105/1:/Table/1{29-30}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993033.870717633,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992916.943299344,0
+I170805 21:17:14.077473 87 storage/replica_proposal.go:415  [n1,s1,r110/1:/Table/13{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993034.072776153,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.493725233,0
+I170805 21:17:14.281456 97 storage/replica_proposal.go:415  [n1,s1,r14/1:/Table/5{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993034.276471186,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992695.160428031,0
+I170805 21:17:14.480957 91 storage/replica_proposal.go:415  [n1,s1,r11/1:/Table/5{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993034.478977057,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992696.173017870,0
+I170805 21:17:14.686621 98 storage/replica_proposal.go:415  [n1,s1,r77/1:/Table/10{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993034.682078048,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992694.955959595,0
+I170805 21:17:14.891053 97 storage/replica_proposal.go:415  [n1,s1,r122/1:/Table/14{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993034.885580206,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992699.839433563,0
+I170805 21:17:15.093641 94 storage/replica_proposal.go:415  [n1,s1,r10/1:/Table/{15-50}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993035.088601107,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992692.129806243,0
+I170805 21:17:15.294386 98 storage/replica_proposal.go:415  [n1,s1,r86/1:/Table/11{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993035.289716628,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.694758534,0
+I170805 21:17:15.499434 90 storage/replica_proposal.go:415  [n1,s1,r106/1:/Table/13{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993035.494115742,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992681.774187606,0
+I170805 21:17:15.700273 98 storage/replica_proposal.go:415  [n1,s1,r109/1:/Table/13{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993035.695538765,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.111065698,0
+I170805 21:17:15.902129 93 storage/replica_proposal.go:415  [n1,s1,r116/1:/Table/14{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993035.897915444,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992681.368415867,0
+I170805 21:17:16.103573 80 storage/replica_proposal.go:415  [n1,s1,r67/1:/Table/9{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993036.098446831,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992683.398616069,0
+I170805 21:17:16.305690 77 storage/replica_proposal.go:415  [n1,s1,r84/1:/Table/10{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993036.300284948,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992688.868132153,0
+I170805 21:17:16.508484 94 storage/replica_proposal.go:415  [n1,s1,r3/1:/System/ts{d-e}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993036.504340813,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.453200447,0
+I170805 21:17:16.714296 93 storage/replica_proposal.go:415  [n1,s1,r17/1:/Table/5{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993036.709017353,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992693.946144249,0
+I170805 21:17:16.915412 93 storage/replica_proposal.go:415  [n1,s1,r52/1:/Table/7{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993036.909999065,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992682.176858081,0
+I170805 21:17:17.119450 89 storage/replica_proposal.go:415  [n1,s1,r65/1:/Table/{89-90}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993037.114567982,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992915.938854602,0
+I170805 21:17:17.324889 102 storage/replica_proposal.go:415  [n1,s1,r108/1:/Table/13{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993037.319322465,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992688.665767494,0
+I170805 21:17:17.525281 79 storage/replica_proposal.go:415  [n1,s1,r82/1:/Table/10{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993037.520496518,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992915.335737312,0
+I170805 21:17:17.729518 89 storage/replica_proposal.go:415  [n1,s1,r94/1:/Table/11{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993037.721788147,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992700.242038974,0
+I170805 21:17:17.927026 77 storage/replica_proposal.go:415  [n1,s1,r44/1:/Table/6{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993037.922535143,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992688.461859743,0
+I170805 21:17:18.127901 84 storage/replica_proposal.go:415  [n1,s1,r104/1:/Table/12{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993038.123127622,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992686.029526428,0
+I170805 21:17:18.330623 83 storage/replica_proposal.go:415  [n1,s1,r43/1:/Table/6{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993038.325831546,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.721473538,0
+I170805 21:17:18.537504 90 storage/replica_proposal.go:415  [n1,s1,r91/1:/Table/11{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993038.529558115,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992695.362168793,0
+I170805 21:17:18.737888 89 storage/replica_proposal.go:415  [n1,s1,r71/1:/Table/9{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993038.731848548,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992694.149196152,0
+I170805 21:17:18.939464 81 storage/replica_proposal.go:415  [n1,s1,r16/1:/Table/5{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993038.934400149,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992685.625848737,0
+I170805 21:17:19.140212 102 storage/replica_proposal.go:415  [n1,s1,r18/1:/Table/5{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993039.135533387,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992689.475586911,0
+I170805 21:17:19.341076 92 storage/replica_proposal.go:415  [n1,s1,r121/1:/Table/14{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993039.336195471,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992684.609991856,0
+I170805 21:17:19.545640 104 storage/replica_proposal.go:415  [n1,s1,r120/1:/Table/14{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993039.540574950,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992689.677253126,0
+I170805 21:17:19.746684 88 storage/replica_proposal.go:415  [n1,s1,r73/1:/Table/9{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993039.741594834,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992684.002431104,0
+I170805 21:17:19.946779 96 storage/replica_proposal.go:415  [n1,s1,r111/1:/Table/13{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993039.942047312,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992688.056158976,0
+I170805 21:17:20.147720 96 storage/replica_proposal.go:415  [n1,s1,r83/1:/Table/10{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993040.143205622,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992691.720950697,0
+I170805 21:17:20.348467 76 storage/replica_proposal.go:415  [n1,s1,r15/1:/Table/5{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993040.343739593,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992916.541359567,0
+W170805 21:17:20.442451 118 server/status/runtime.go:184  [n1] unable to get file descriptor usage (will not try again): not implemented on darwin
+I170805 21:17:20.442691 118 server/status/runtime.go:225  [n1] runtime stats: 41 MiB RSS, 124 goroutines, 11 MiB/2.0 MiB/20 MiB GO alloc/idle/total, 6.9 MiB/11 MiB CGO alloc/total, 0.00cgo/sec, 0.00/0.00 %(u/s)time, 0.00 %gc (6x)
+I170805 21:17:20.443540 116 storage/store.go:3997  [n1,s1] sstables (read amplification = 1):
+6 [ 1009K 1 ]: 1009K
+I170805 21:17:20.548181 96 storage/replica_proposal.go:415  [n1,s1,r75/1:/Table/{99-100}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993040.544503040,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.313747704,0
+I170805 21:17:20.951217 85 storage/replica_proposal.go:415  [n1,s1,r69/1:/Table/9{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993040.946306076,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992690.087248464,0
+I170805 21:17:21.152749 103 storage/replica_proposal.go:415  [n1,s1,r49/1:/Table/7{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993041.148312030,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992680.759583506,0
+I170805 21:17:21.354342 105 storage/replica_proposal.go:415  [n1,s1,r56/1:/Table/8{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993041.349652376,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992697.798631791,0
+I170805 21:17:21.553089 98 storage/replica_proposal.go:415  [n1,s1,r117/1:/Table/14{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993041.550052853,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992682.991469128,0
+I170805 21:17:21.758417 81 storage/replica_proposal.go:415  [n1,s1,r63/1:/Table/8{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993041.753070849,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992685.015222286,0
+I170805 21:17:21.961030 97 storage/replica_proposal.go:415  [n1,s1,r87/1:/Table/11{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993041.955963610,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992916.139572700,0
+I170805 21:17:22.161927 80 storage/replica_proposal.go:415  [n1,s1,r99/1:/Table/12{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993042.157086813,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992694.350584882,0
+I170805 21:17:22.366669 96 storage/replica_proposal.go:415  [n1,s1,r126/1:/{Table/150-Max}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993042.361536823,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992687.852647723,0
+I170805 21:17:22.568597 99 storage/replica_proposal.go:415  [n1,s1,r12/1:/Table/5{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993042.563311635,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992681.570880626,0
+I170805 21:17:22.772211 103 storage/replica_proposal.go:415  [n1,s1,r64/1:/Table/8{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993042.767178276,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992687.246700012,0
+I170805 21:17:22.977658 84 storage/replica_proposal.go:415  [n1,s1,r90/1:/Table/11{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993042.972754115,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.090353926,0
+I170805 21:17:23.179895 83 storage/replica_proposal.go:415  [n1,s1,r72/1:/Table/9{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993043.174790639,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992698.408176818,0
+I170805 21:17:23.380295 85 storage/replica_proposal.go:415  [n1,s1,r76/1:/Table/10{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993043.375554063,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992685.828687187,0
+I170805 21:17:23.585638 99 storage/replica_proposal.go:415  [n1,s1,r79/1:/Table/10{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993043.580656836,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992680.354099949,0
+I170805 21:17:23.790735 75 storage/replica_proposal.go:415  [n1,s1,r74/1:/Table/9{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993043.785594793,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992687.448992562,0
+I170805 21:17:23.992249 98 storage/replica_proposal.go:415  [n1,s1,r62/1:/Table/8{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993043.989697475,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992698.207425925,0
+I170805 21:17:24.195730 78 storage/replica_proposal.go:415  [n1,s1,r93/1:/Table/11{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993044.193113675,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992696.579544394,0
+I170805 21:17:24.398669 85 storage/replica_proposal.go:415  [n1,s1,r58/1:/Table/8{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993044.393933770,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992692.330588335,0
+I170805 21:17:24.603355 104 storage/replica_proposal.go:415  [n1,s1,r102/1:/Table/12{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993044.598605174,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992683.194548822,0
+I170805 21:17:24.808325 87 storage/replica_proposal.go:415  [n1,s1,r45/1:/Table/{69-70}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993044.802951731,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992915.536339029,0
+I170805 21:17:25.011572 97 storage/replica_proposal.go:415  [n1,s1,r92/1:/Table/11{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993045.006404745,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992693.542977408,0
+I170805 21:17:25.213763 77 storage/replica_proposal.go:415  [n1,s1,r4/1:/{System/tse-Table/0}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993045.210996331,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992916.741960109,0
+I170805 21:17:25.623924 86 storage/replica_proposal.go:415  [n1,s1,r42/1:/Table/6{6-7}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993045.618638934,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992681.164043892,0
+I170805 21:17:25.828479 100 storage/replica_proposal.go:415  [n1,s1,r89/1:/Table/11{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993045.823445942,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993005.515778747,0
+I170805 21:17:26.033965 87 storage/replica_proposal.go:415  [n1,s1,r22/1:/Table/6{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993046.028782420,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992917.143842936,0
+I170805 21:17:26.239704 100 storage/replica_proposal.go:415  [n1,s1,r61/1:/Table/8{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993046.234409015,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992686.841798882,0
+I170805 21:17:26.442930 75 storage/replica_proposal.go:415  [n1,s1,r118/1:/Table/14{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993046.438261980,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992915.737915421,0
+I170805 21:17:26.645335 89 storage/replica_proposal.go:415  [n1,s1,r107/1:/Table/13{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993046.640270206,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992697.189815474,0
+I170805 21:17:26.846479 86 storage/replica_proposal.go:415  [n1,s1,r66/1:/Table/9{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993046.841449072,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992696.984506431,0
+I170805 21:17:27.047387 86 storage/replica_proposal.go:415  [n1,s1,r85/1:/Table/1{09-10}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993047.042433172,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992695.565162773,0
+I170805 21:17:27.248123 93 storage/replica_proposal.go:415  [n1,s1,r113/1:/Table/13{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993047.243441870,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992689.882478336,0
+I170805 21:17:27.449409 89 storage/replica_proposal.go:415  [n1,s1,r59/1:/Table/8{3-4}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993047.444444856,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992680.963546533,0
+I170805 21:17:27.651668 77 storage/replica_proposal.go:415  [n1,s1,r57/1:/Table/8{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993047.646413685,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.704420419,0
+I170805 21:17:27.852285 87 storage/replica_proposal.go:415  [n1,s1,r54/1:/Table/7{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993047.847451339,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992698.816527403,0
+I170805 21:17:28.053073 83 storage/replica_proposal.go:415  [n1,s1,r55/1:/Table/{79-80}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993048.049982161,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992678.542359789,0
+I170805 21:17:28.257743 98 storage/replica_proposal.go:415  [n1,s1,r124/1:/Table/14{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993048.252886398,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992699.225024577,0
+I170805 21:17:28.460015 102 storage/replica_proposal.go:415  [n1,s1,r114/1:/Table/13{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993048.455242066,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992696.378073980,0
+I170805 21:17:28.661570 100 storage/replica_proposal.go:415  [n1,s1,r123/1:/Table/14{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993048.657001549,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992692.739889357,0
+I170805 21:17:28.866099 104 storage/replica_proposal.go:415  [n1,s1,r19/1:/Table/5{8-9}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993048.860449451,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992691.924627349,0
+I170805 21:17:29.071557 86 storage/replica_proposal.go:415  [n1,s1,r47/1:/Table/7{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993049.066116539,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992918.152655289,0
+I170805 21:17:29.275325 106 storage/replica_proposal.go:415  [n1,s1,r98/1:/Table/12{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993049.270660977,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992691.109657342,0
+I170805 21:17:29.475874 104 storage/replica_proposal.go:415  [n1,s1,r103/1:/Table/12{7-8}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993049.471192993,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.301106337,0
+I170805 21:17:29.678855 80 storage/replica_proposal.go:415  [n1,s1,r46/1:/Table/7{0-1}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993049.674528304,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.895969650,0
+I170805 21:17:29.878705 90 storage/replica_proposal.go:415  [n1,s1,r5/1:/Table/{0-11}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993049.875338121,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993030.452754492,0
+I170805 21:17:30.082956 82 storage/replica_proposal.go:415  [n1,s1,r25/1:/Table/6{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993050.078060481,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992917.547722082,0
+I170805 21:17:30.286769 84 storage/replica_proposal.go:415  [n1,s1,r13/1:/Table/5{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993050.282150472,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992700.848822016,0
+I170805 21:17:30.442000 118 server/status/runtime.go:225  [n1] runtime stats: 44 MiB RSS, 124 goroutines, 14 MiB/968 KiB/22 MiB GO alloc/idle/total, 6.6 MiB/11 MiB CGO alloc/total, 515.73cgo/sec, 0.02/0.01 %(u/s)time, 0.00 %gc (1x)
+I170805 21:17:30.484950 95 storage/replica_proposal.go:415  [n1,s1,r88/1:/Table/11{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993050.482577938,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992683.600635052,0
+I170805 21:17:30.690763 100 storage/replica_proposal.go:415  [n1,s1,r97/1:/Table/12{1-2}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993050.686297204,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993004.908249691,0
+I170805 21:17:30.895387 91 storage/replica_proposal.go:415  [n1,s1,r41/1:/Table/6{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993050.890266847,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992690.291552987,0
+I170805 21:17:31.098666 81 storage/replica_proposal.go:415  [n1,s1,r115/1:/Table/1{39-40}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993051.093793628,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992699.019226427,0
+I170805 21:17:31.298203 83 storage/replica_proposal.go:415  [n1,s1,r81/1:/Table/10{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993051.294383574,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992690.496466983,0
+I170805 21:17:31.500330 92 storage/replica_proposal.go:415  [n1,s1,r95/1:/Table/1{19-20}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993051.496167649,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992684.814134743,0
+I170805 21:17:31.705608 81 storage/replica_proposal.go:415  [n1,s1,r20/1:/Table/{59-60}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993051.701631561,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992690.904099756,0
+I170805 21:17:31.907447 82 storage/replica_proposal.go:415  [n1,s1,r23/1:/Table/6{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993051.902678362,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992917.346210932,0
+I170805 21:17:32.108387 84 storage/replica_proposal.go:415  [n1,s1,r9/1:/Table/1{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993052.103349636,0 following repl=(n1,s1):1 start=0.000000000,0 epo=6 pro=1501993003.290792548,0
+I170805 21:17:32.312817 106 storage/replica_proposal.go:415  [n1,s1,r101/1:/Table/12{5-6}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993052.307931815,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992699.634556742,0
+I170805 21:17:32.518495 84 storage/replica_proposal.go:415  [n1,s1,r70/1:/Table/9{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993052.513568533,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992684.208698880,0
+I170805 21:17:32.721601 82 storage/replica_proposal.go:415  [n1,s1,r48/1:/Table/7{2-3}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993052.716175641,0 following repl=(n1,s1):1 start=0.000000000,0 epo=4 pro=1501992693.744801994,0
+I170805 21:17:32.923046 94 storage/replica_proposal.go:415  [n1,s1,r60/1:/Table/8{4-5}] new range lease repl=(n1,s1):1 start=0.000000000,0 epo=7 pro=1501993052.918277770,0 following repl=(n1,s1):1 start=0.000000000,0 epo=5 pro=1501992917.749636162,0
+I170805 21:17:40.442015 118 server/status/runtime.go:225  [n1] runtime stats: 46 MiB RSS, 124 goroutines, 14 MiB/1.9 MiB/24 MiB GO alloc/idle/total, 6.8 MiB/12 MiB CGO alloc/total, 167.10cgo/sec, 0.01/0.00 %(u/s)time, 0.00 %gc (1x)
+I170805 21:17:47.690916 1 cli/start.go:446  received signal 'terminated'
+I170805 21:17:47.691127 1 cli/start.go:471  initiating graceful shutdown of server
+I170805 21:17:47.696388 45 vendor/google.golang.org/grpc/transport/http2_server.go:323  transport: http2Server.HandleStreams failed to read frame: read tcp 127.0.0.1:26257->127.0.0.1:62438: use of closed network connection
+I170805 21:17:47.696701 59 vendor/google.golang.org/grpc/transport/http2_client.go:1231  transport: http2Client.notifyError got notified that the client transport was broken EOF.
+I170805 21:17:47.697022 163 vendor/google.golang.org/grpc/clientconn.go:806  grpc: addrConn.resetTransport failed to create client transport: connection error: desc = "transport: dial tcp: operation was canceled"; Reconnecting to {localhost:26257 <nil>}
+I170805 21:17:47.697231 163 vendor/google.golang.org/grpc/clientconn.go:906  grpc: addrConn.transportMonitor exits due to: grpc: the connection is closing
+I170805 21:18:10.474385 557 storage/engine/rocksdb.go:447  closing rocksdb instance at "/Users/jangeja/upwork/NiharMehta/Application/Database/cockroach-data"
+I170805 21:18:10.479928 1 cli/start.go:503  server drained and shutdown completed
